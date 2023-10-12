@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="624.0" style="-fx-background-color: #0E5ACE;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.interfaz.GameController">
+   <children>
+      <GridPane layoutY="116.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="624.0" prefWidth="624.0" style="-fx-background-color: #0B1C36;">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="12.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="0.0" prefWidth="90.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="12.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="90.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="12.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="90.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="12.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="90.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="12.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="90.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="12.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="90.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="12.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="12.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="90.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="12.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="90.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="12.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="90.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="12.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="90.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="12.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="90.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="12.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="90.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="12.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Button fx:id="boton1_0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="12.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" />
+            <Button fx:id="boton3_0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="12.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="3" />
+            <Button fx:id="boton5_0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="12.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="5" />
+            <Button fx:id="boton7_0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="12.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="7" />
+            <Button fx:id="boton9_0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="12.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="9" />
+            <Button fx:id="boton11_0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="12.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="11" />
+            <Button fx:id="boton1_2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="12.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button fx:id="boton3_2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="12.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Button fx:id="boton5_2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="12.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+            <Button fx:id="boton7_2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="12.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="7" GridPane.rowIndex="2" />
+            <Button fx:id="boton9_2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="12.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="9" GridPane.rowIndex="2" />
+            <Button fx:id="boton11_2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="12.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="11" GridPane.rowIndex="2" />
+            <Button fx:id="boton1_4" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="12.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Button fx:id="boton3_4" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="12.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <Button fx:id="boton5_4" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="12.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+            <Button fx:id="boton7_4" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="12.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="7" GridPane.rowIndex="4" />
+            <Button fx:id="boton9_4" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="12.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="9" GridPane.rowIndex="4" />
+            <Button fx:id="boton11_4" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="12.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="11" GridPane.rowIndex="4" />
+            <Button fx:id="boton1_6" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="12.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Button fx:id="boton3_6" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="12.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+            <Button fx:id="boton5_6" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="12.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="5" GridPane.rowIndex="6" />
+            <Button fx:id="boton7_6" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="12.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="7" GridPane.rowIndex="6" />
+            <Button fx:id="boton9_6" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="12.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="9" GridPane.rowIndex="6" />
+            <Button fx:id="boton11_6" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="12.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="11" GridPane.rowIndex="6" />
+            <Button fx:id="boton1_8" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="12.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <Button fx:id="boton3_8" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="12.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+            <Button fx:id="boton5_8" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="12.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="5" GridPane.rowIndex="8" />
+            <Button fx:id="boton7_8" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="12.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="7" GridPane.rowIndex="8" />
+            <Button fx:id="boton9_8" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="12.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="9" GridPane.rowIndex="8" />
+            <Button fx:id="boton11_8" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="12.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="11" GridPane.rowIndex="8" />
+            <Button fx:id="boton1_10" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="12.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <Button fx:id="boton3_10" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="12.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="3" GridPane.rowIndex="10" />
+            <Button fx:id="boton5_10" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="12.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="5" GridPane.rowIndex="10" />
+            <Button fx:id="boton7_10" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="12.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="7" GridPane.rowIndex="10" />
+            <Button fx:id="boton9_10" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="12.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="9" GridPane.rowIndex="10" />
+            <Button fx:id="boton11_10" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="12.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="11" GridPane.rowIndex="10" />
+            <Button fx:id="boton1_12" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="12.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+            <Button fx:id="boton3_12" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="12.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="3" GridPane.rowIndex="12" />
+            <Button fx:id="boton5_12" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="12.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="5" GridPane.rowIndex="12" />
+            <Button fx:id="boton7_12" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="12.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="7" GridPane.rowIndex="12" />
+            <Button fx:id="boton9_12" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="12.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="9" GridPane.rowIndex="12" />
+            <Button fx:id="boton11_12" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="12.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="11" GridPane.rowIndex="12" />
+            <Button fx:id="boton0_1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="90.0" prefWidth="12.0" style="-fx-background-color: #FFFFFF;" GridPane.rowIndex="1" />
+            <Button fx:id="boton0_3" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="90.0" prefWidth="12.0" style="-fx-background-color: #FFFFFF;" GridPane.rowIndex="3" />
+            <Button fx:id="boton0_5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="90.0" prefWidth="12.0" style="-fx-background-color: #FFFFFF;" GridPane.rowIndex="5" />
+            <Button fx:id="boton0_7" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="90.0" prefWidth="12.0" style="-fx-background-color: #FFFFFF;" GridPane.rowIndex="7" />
+            <Button fx:id="boton0_9" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="90.0" prefWidth="12.0" style="-fx-background-color: #FFFFFF;" GridPane.rowIndex="9" />
+            <Button fx:id="boton0_11" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="90.0" prefWidth="12.0" style="-fx-background-color: #FFFFFF;" GridPane.rowIndex="11" />
+            <Button fx:id="boton2_1" layoutX="10.0" layoutY="22.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="90.0" prefWidth="12.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Button fx:id="boton2_3" layoutX="10.0" layoutY="134.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="90.0" prefWidth="12.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Button fx:id="boton2_5" layoutX="10.0" layoutY="246.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="90.0" prefWidth="12.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <Button fx:id="boton2_7" layoutX="10.0" layoutY="358.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="90.0" prefWidth="12.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+            <Button fx:id="boton2_9" layoutX="10.0" layoutY="470.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="90.0" prefWidth="12.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+            <Button fx:id="boton2_11" layoutX="10.0" layoutY="582.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="90.0" prefWidth="12.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="2" GridPane.rowIndex="11" />
+            <Button fx:id="boton4_1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="90.0" prefWidth="12.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <Button fx:id="boton4_3" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="90.0" prefWidth="12.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <Button fx:id="boton4_5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="90.0" prefWidth="12.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+            <Button fx:id="boton4_7" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="90.0" prefWidth="12.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+            <Button fx:id="boton4_9" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="90.0" prefWidth="12.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="4" GridPane.rowIndex="9" />
+            <Button fx:id="boton4_11" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="90.0" prefWidth="12.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="4" GridPane.rowIndex="11" />
+            <Button fx:id="boton6_1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="90.0" prefWidth="12.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+            <Button fx:id="boton6_3" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="90.0" prefWidth="12.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+            <Button fx:id="boton6_5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="90.0" prefWidth="12.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="6" GridPane.rowIndex="5" />
+            <Button fx:id="boton6_7" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="90.0" prefWidth="12.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="6" GridPane.rowIndex="7" />
+            <Button fx:id="boton6_9" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="90.0" prefWidth="12.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="6" GridPane.rowIndex="9" />
+            <Button fx:id="boton6_11" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="90.0" prefWidth="12.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="6" GridPane.rowIndex="11" />
+            <Button fx:id="boton8_1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="90.0" prefWidth="12.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="8" GridPane.rowIndex="1" />
+            <Button fx:id="boton8_3" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="90.0" prefWidth="12.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="8" GridPane.rowIndex="3" />
+            <Button fx:id="boton8_5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="90.0" prefWidth="12.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="8" GridPane.rowIndex="5" />
+            <Button fx:id="boton8_7" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="90.0" prefWidth="12.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="8" GridPane.rowIndex="7" />
+            <Button fx:id="boton8_9" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="90.0" prefWidth="12.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="8" GridPane.rowIndex="9" />
+            <Button fx:id="boton8_11" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="90.0" prefWidth="12.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="8" GridPane.rowIndex="11" />
+            <Button fx:id="boton10_1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="90.0" prefWidth="12.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="10" GridPane.rowIndex="1" />
+            <Button fx:id="boton10_3" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="90.0" prefWidth="12.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="10" GridPane.rowIndex="3" />
+            <Button fx:id="boton10_5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="90.0" prefWidth="12.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="10" GridPane.rowIndex="5" />
+            <Button fx:id="boton10_7" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="90.0" prefWidth="12.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="10" GridPane.rowIndex="7" />
+            <Button fx:id="boton10_9" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="90.0" prefWidth="12.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="10" GridPane.rowIndex="9" />
+            <Button fx:id="boton10_11" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="90.0" prefWidth="12.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="10" GridPane.rowIndex="11" />
+            <Button fx:id="boton12_1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="90.0" prefWidth="12.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="12" GridPane.rowIndex="1" />
+            <Button fx:id="boton12_3" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="90.0" prefWidth="12.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="12" GridPane.rowIndex="3" />
+            <Button fx:id="boton12_5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="90.0" prefWidth="12.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="12" GridPane.rowIndex="5" />
+            <Button fx:id="boton12_7" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="90.0" prefWidth="12.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="12" GridPane.rowIndex="7" />
+            <Button fx:id="boton12_9" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="90.0" prefWidth="12.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="12" GridPane.rowIndex="9" />
+            <Button fx:id="boton12_11" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="90.0" prefWidth="12.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="12" GridPane.rowIndex="11" />
+            <Label fx:id="nombreCuadrado1_1" alignment="CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="90.0" text="" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="nombreCuadrado3_1" alignment="CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="90.0" text="" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="nombreCuadrado5_1" alignment="CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="90.0" text="" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="5" GridPane.rowIndex="1">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="nombreCuadrado7_1" alignment="CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="90.0" text="" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="7" GridPane.rowIndex="1">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="nombreCuadrado9_1" alignment="CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="90.0" text="" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="9" GridPane.rowIndex="1">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="nombreCuadrado11_1" alignment="CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="90.0" text="" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="11" GridPane.rowIndex="1">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="nombreCuadrado1_3" alignment="CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="90.0" text="" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="nombreCuadrado3_3" alignment="CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="90.0" text="" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="3">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="nombreCuadrado5_3" alignment="CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="90.0" text="" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="5" GridPane.rowIndex="3">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="nombreCuadrado7_3" alignment="CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="90.0" text="" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="7" GridPane.rowIndex="3">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="nombreCuadrado9_3" alignment="CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="90.0" text="" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="9" GridPane.rowIndex="3">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="nombreCuadrado11_3" alignment="CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="90.0" text="" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="11" GridPane.rowIndex="3">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="nombreCuadrado1_5" alignment="CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="90.0" text="" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="nombreCuadrado3_5" alignment="CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="90.0" text="" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="5">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="nombreCuadrado5_5" alignment="CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="90.0" text="" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="5" GridPane.rowIndex="5">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="nombreCuadrado7_5" alignment="CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="90.0" text="" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="7" GridPane.rowIndex="5">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="nombreCuadrado9_5" alignment="CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="90.0" text="" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="9" GridPane.rowIndex="5">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="nombreCuadrado11_5" alignment="CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="90.0" text="" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="11" GridPane.rowIndex="5">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="nombreCuadrado1_7" alignment="CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="90.0" text="" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="7">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="nombreCuadrado3_7" alignment="CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="90.0" text="" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="7">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="nombreCuadrado5_7" alignment="CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="90.0" text="" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="5" GridPane.rowIndex="7">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="nombreCuadrado7_7" alignment="CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="90.0" text="" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="7" GridPane.rowIndex="7">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="nombreCuadrado9_7" alignment="CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="90.0" text="" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="9" GridPane.rowIndex="7">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="nombreCuadrado11_7" alignment="CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="90.0" text="" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="11" GridPane.rowIndex="7">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="nombreCuadrado1_9" alignment="CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="90.0" text="" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="9">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="nombreCuadrado3_9" alignment="CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="90.0" text="" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="9">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="nombreCuadrado5_9" alignment="CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="90.0" text="" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="5" GridPane.rowIndex="9">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="nombreCuadrado7_9" alignment="CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="90.0" text="" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="7" GridPane.rowIndex="9">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="nombreCuadrado9_9" alignment="CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="90.0" text="" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="9" GridPane.rowIndex="9">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="nombreCuadrado11_9" alignment="CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="90.0" text="" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="11" GridPane.rowIndex="9">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="nombreCuadrado1_11" alignment="CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="90.0" text="" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="11">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="nombreCuadrado3_11" alignment="CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="90.0" text="" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="11">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="nombreCuadrado5_11" alignment="CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="90.0" text="" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="5" GridPane.rowIndex="11">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="nombreCuadrado7_11" alignment="CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="90.0" text="" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="7" GridPane.rowIndex="11">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="nombreCuadrado9_11" alignment="CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="90.0" text="" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="9" GridPane.rowIndex="11">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="nombreCuadrado11_11" alignment="CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="90.0" text="" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="11" GridPane.rowIndex="11">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+         </children>
+      </GridPane>
+      <Label layoutX="212.0" layoutY="82.0" text="Turno de:" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="personaTurno" layoutX="317.0" layoutY="82.0" text="Persona 1" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="nombreJugador" layoutX="180.0" layoutY="17.0" text="Connect Dots" textFill="WHITE">
+         <font>
+            <Font size="44.0" />
+         </font>
+      </Label>
+      <Button fx:id="botonVerListas" layoutX="22.0" layoutY="85.0" mnemonicParsing="false" onAction="#verListas" text="Ver listas">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>
