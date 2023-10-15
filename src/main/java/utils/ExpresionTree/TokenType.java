@@ -1,8 +1,13 @@
 package utils.ExpresionTree;
 
 public enum TokenType {
-    OPERATOR,
-    NUMBER,
+    OPERATOR_BINARIO,
+
+    OPERATOR_UNARIO,
+
     OPEN_PARENTHESIS,
-    CLOSE_PARENTHESIS
+    CLOSE_PARENTHESIS,
+    NUMBER,
+
+
 }

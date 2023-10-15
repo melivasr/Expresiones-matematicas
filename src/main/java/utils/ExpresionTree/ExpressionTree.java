@@ -1,6 +1,5 @@
 package utils.ExpresionTree;
 
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
@@ -17,13 +16,13 @@ public class ExpressionTree {
             this.data = data;
         }
 
-        public int evaluate() {
+        public int evaluate_expr() {
             if (!isOperator(data)) {
                 return Integer.parseInt(data);
             }
 
-            int leftValue = left.evaluate();
-            int rightValue = right.evaluate();
+            int leftValue = left == null ? 0 : left.evaluate_expr();
+            int rightValue = right.evaluate_expr();
 
             switch (data) {
                 case "+":
@@ -70,12 +69,15 @@ public class ExpressionTree {
 
     public ExpressionTree(String expression) {
         Queue<Token> tokens= Tokenizer(expression);
+
         root = buildExpressionTree(tokens);
+        System.out.println(root);
     }
 
     private Node buildExpressionTree(Queue<Token> tokens) {
         Stack<Node> operandStack = new Stack<>();
         Stack<Node> operatorStack = new Stack<>();
+        Stack<Node> unaryOperatorStack = new Stack<>();
 
         while(!tokens.isEmpty()){
             Token token = tokens.poll();
@@ -86,9 +88,20 @@ public class ExpressionTree {
             else if(token.isType(TokenType.CLOSE_PARENTHESIS)) {
                 break;
             }
+            else if(token.isType(TokenType.OPERATOR_UNARIO)) {
+                unaryOperatorStack.add(new Node(token.getData()));
+            }
             else if(token.isType(TokenType.NUMBER)) {
                 operandStack.push(new Node(token.getData()));
-            } else {
+            }
+            else {
+                while(!unaryOperatorStack.isEmpty())
+                {
+                    Node operatorNode = unaryOperatorStack.pop();
+                    operatorNode.right = operandStack.pop();
+                    operandStack.push(operatorNode);
+                }
+
                 while (!operatorStack.isEmpty() && getOperatorPriority(token.getData()) <= getOperatorPriority(operatorStack.peek().data)) {
                     Node operatorNode = operatorStack.pop();
                     operatorNode.right = operandStack.pop();
@@ -97,6 +110,13 @@ public class ExpressionTree {
                 }
                 operatorStack.push(new Node(token.getData()));
             }
+        }
+
+        while(!unaryOperatorStack.isEmpty())
+        {
+            Node operatorNode = unaryOperatorStack.pop();
+            operatorNode.right = operandStack.pop();
+            operandStack.push(operatorNode);
         }
 
         while (!operatorStack.isEmpty()) {
@@ -135,15 +155,25 @@ public class ExpressionTree {
     public static Queue<Token> Tokenizer( String expression){
         LinkedList<Token> linkedList = new LinkedList<>();
         for (char c : expression.toCharArray()){
-            if (c == '+' || c == '-' ||  c == '/' ||  c == '%' ) {
-                Token token = new Token(Character.toString(c), TokenType.OPERATOR);
+            if (c == '/' ||  c == '%' ) {
+                Token token = new Token(Character.toString(c), TokenType.OPERATOR_BINARIO);
                 linkedList.add(token);
             }
+            if (c == '-' || c == '+' ) {
+
+                if (linkedList.isEmpty() || linkedList.peekLast().isType(TokenType.OPEN_PARENTHESIS) || linkedList.peekLast().isType(TokenType.OPERATOR_BINARIO) || linkedList.peekLast().isType(TokenType.OPERATOR_UNARIO)) {
+                    Token token = new Token(Character.toString(c), TokenType.OPERATOR_UNARIO);
+                    linkedList.add(token);
+                } else {
+                    Token token = new Token(Character.toString(c), TokenType.OPERATOR_BINARIO);
+                    linkedList.add(token);
+                }
+            }
             if (c == '*') {
-                if (linkedList.peekLast() != null && linkedList.peekLast().isType(TokenType.OPERATOR)) {
+                if (linkedList.peekLast() != null && linkedList.peekLast().isType(TokenType.OPERATOR_BINARIO)) {
                     linkedList.peekLast().addChar(c);
                 } else {
-                    Token token = new Token(Character.toString(c), TokenType.OPERATOR);
+                    Token token = new Token(Character.toString(c), TokenType.OPERATOR_BINARIO);
                     linkedList.add(token);
                 }
             }
@@ -172,6 +202,6 @@ public class ExpressionTree {
     }
 
     public int evaluate() {
-        return root.evaluate();
+        return root.evaluate_expr();
     }
 }
