@@ -16,13 +16,13 @@ public class ExpressionTree {
             this.data = data;
         }
 
-        public int evaluate_expr() {
+        public long evaluate_expr() {
             if (!isOperator(data)) {
                 return Integer.parseInt(data);
             }
 
-            int leftValue = left == null ? 0 : left.evaluate_expr();
-            int rightValue = right.evaluate_expr();
+            long leftValue = left == null ? 0 : left.evaluate_expr();
+            long rightValue = right.evaluate_expr();
 
             switch (data) {
                 case "+":
@@ -32,7 +32,7 @@ public class ExpressionTree {
                 case "*": // falta multiplicar dos negativos
                     return leftValue * rightValue;
                 case "**":
-                    return (int) Math.pow(leftValue, rightValue);
+                    return (long) Math.pow(leftValue, rightValue);
 
                 case "/": //falta dividir dos negativos
                     if (rightValue == 0) {
@@ -201,7 +201,7 @@ public class ExpressionTree {
         return linkedList;
     }
 
-    public int evaluate() {
+    public long evaluate() {
         return root.evaluate_expr();
     }
 }
