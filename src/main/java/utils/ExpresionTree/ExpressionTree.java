@@ -30,12 +30,12 @@ public class ExpressionTree {
                     return leftValue + rightValue;
                 case "-":
                     return leftValue - rightValue;
-                case "*":
+                case "*": // falta multiplicar dos negativos
                     return leftValue * rightValue;
                 case "**":
                     return (int) Math.pow(leftValue, rightValue);
 
-                case "/":
+                case "/": //falta dividir dos negativos
                     if (rightValue == 0) {
                         throw new ArithmeticException("Division by zero");
                     }
@@ -68,30 +68,6 @@ public class ExpressionTree {
         }
     }
 
-    /*
-
-6*30+1
-
-0 1
-6 * -> Numero
-
-1 2
-* 3 -> Operador *
-
-2 3
-3 0 -> Numero 3
-
-3 4
-0 + -> Numero 30
-
-4 5
-+ 1 -> Operador +
-
-5 6
-1 _ -> Numero 1
-
-
-    * */
     public ExpressionTree(String expression) {
         Queue<Token> tokens= Tokenizer(expression);
         root = buildExpressionTree(tokens);
@@ -134,7 +110,9 @@ public class ExpressionTree {
     }
 
     private int getOperatorPriority(String operator) {
-        if (operator.equals("*") || operator.equals("/") || operator.equals("%") || operator.equals("**")) {
+        if (operator.equals("**")){
+            return 3;
+        } else if (operator.equals("*") || operator.equals("/") || operator.equals("%")) {
             return 2;
         } else if (operator.equals("+") || operator.equals("-")) {
             return 1;
@@ -157,9 +135,17 @@ public class ExpressionTree {
     public static Queue<Token> Tokenizer( String expression){
         LinkedList<Token> linkedList = new LinkedList<>();
         for (char c : expression.toCharArray()){
-            if (c == '+' || c == '-' || c == '*' ||  c == '/' ||  c == '%' ) {
+            if (c == '+' || c == '-' ||  c == '/' ||  c == '%' ) {
                 Token token = new Token(Character.toString(c), TokenType.OPERATOR);
                 linkedList.add(token);
+            }
+            if (c == '*') {
+                if (linkedList.peekLast() != null && linkedList.peekLast().isType(TokenType.OPERATOR)) {
+                    linkedList.peekLast().addChar(c);
+                } else {
+                    Token token = new Token(Character.toString(c), TokenType.OPERATOR);
+                    linkedList.add(token);
+                }
             }
             if (c == '(' ){
                 Token token = new Token(Character.toString(c), TokenType.OPEN_PARENTHESIS);
@@ -179,9 +165,6 @@ public class ExpressionTree {
                     Token token = new Token(Character.toString(c), TokenType.NUMBER);
                     linkedList.add(token);
                 }
-
-            }
-            else { Token token = new Token(Character.toString(c), TokenType.OPERATOR);
 
             }
         }
