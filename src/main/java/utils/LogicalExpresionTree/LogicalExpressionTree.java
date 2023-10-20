@@ -1,4 +1,6 @@
 package utils.LogicalExpresionTree;
+import utils.LogicalExpresionTree.LogicalToken;
+import utils.LogicalExpresionTree.LogicalTokenType;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -16,31 +18,26 @@ public class LogicalExpressionTree {
             this.data = data;
         }
 
-        public boolean evaluate() {
-            if (!isOperator(data)) {
-                return Boolean.parseBoolean(data);
-            }
-
-            boolean leftValue = left.evaluate();
-            boolean rightValue = right.evaluate();
-
+        public boolean evaluate_expr() {
             switch (data) {
-                case "&": // AND
-                    return leftValue && rightValue;
-                case "|": // OR
-                    return leftValue || rightValue;
-                case "^": // XOR
-                    return leftValue ^ rightValue;
-                case "~": // NOT
-                    return !rightValue;
+                case "&":
+                    return left.evaluate_expr() && right.evaluate_expr();
+                case "|":
+                    return left.evaluate_expr() || right.evaluate_expr();
+                case "^":
+                    return left.evaluate_expr() ^ right.evaluate_expr();
+                case "~":
+                    return !right.evaluate_expr();
                 default:
-                    return false;
+                    return data.equals("1");
             }
         }
+
 
         public static boolean isOperator(String token) {
             return token.equals("&") || token.equals("|") || token.equals("^") || token.equals("~");
         }
+
         public static boolean isOpenParenthesis(String token) {
             return token.equals("(");
         }
@@ -62,31 +59,57 @@ public class LogicalExpressionTree {
     public LogicalExpressionTree(String expression) {
         Queue<LogicalToken> tokens = Tokenizer(expression);
         root = buildExpressionTree(tokens);
+        System.out.println(root);
     }
 
-    private Node buildExpressionTree(Queue<LogicalToken> tokens) {
-        Stack<Node> operandStack = new Stack<>();
-        Stack<Node> operatorStack = new Stack<>();
+    /// (1 & 0) | (1 ^ 0)
+    private LogicalExpressionTree.Node buildExpressionTree(Queue<LogicalToken> tokens) {
+        Stack<LogicalExpressionTree.Node> operandStack = new Stack<>();
+        Stack<LogicalExpressionTree.Node> operatorStack = new Stack<>();
+        Stack<LogicalExpressionTree.Node> unaryOperatorStack = new Stack<>();
 
-        while (!tokens.isEmpty()) {
+        while(!tokens.isEmpty()){
             LogicalToken token = tokens.poll();
-            if (token.isType(LogicalTokenType.OPEN_PARENTHESIS)) {
+            if (token.isType(LogicalTokenType.OPEN_PARENTHESIS))
+            {
                 operandStack.push(buildExpressionTree(tokens));
-            } else if (token.isType(LogicalTokenType.CLOSE_PARENTHESIS)) {
+            }
+            else if(token.isType(LogicalTokenType.CLOSE_PARENTHESIS)) {
                 break;
-            } else if (token.isType(LogicalTokenType.LOGICAL_OPERATOR)) {
+            }
+            else if(token.isType(LogicalTokenType.OPERATOR_UNARIO)) {
+                unaryOperatorStack.add(new LogicalExpressionTree.Node(token.getData()));
+            }
+            else if(token.isType(LogicalTokenType.NUMBER)) {
+                operandStack.push(new LogicalExpressionTree.Node(token.getData()));
+            }
+            else {
+                while(!unaryOperatorStack.isEmpty())
+                {
+                    LogicalExpressionTree.Node operatorNode = unaryOperatorStack.pop();
+                    operatorNode.right = operandStack.pop();
+                    operandStack.push(operatorNode);
+                }
+
                 while (!operatorStack.isEmpty() && getOperatorPriority(token.getData()) <= getOperatorPriority(operatorStack.peek().data)) {
-                    Node operatorNode = operatorStack.pop();
+                    LogicalExpressionTree.Node operatorNode = operatorStack.pop();
                     operatorNode.right = operandStack.pop();
                     operatorNode.left = operandStack.pop();
                     operandStack.push(operatorNode);
                 }
-                operatorStack.push(new Node(token.getData()));
+                operatorStack.push(new LogicalExpressionTree.Node(token.getData()));
             }
         }
 
+        while(!unaryOperatorStack.isEmpty())
+        {
+            LogicalExpressionTree.Node operatorNode = unaryOperatorStack.pop();
+            operatorNode.right = operandStack.pop();
+            operandStack.push(operatorNode);
+        }
+
         while (!operatorStack.isEmpty()) {
-            Node operatorNode = operatorStack.pop();
+            LogicalExpressionTree.Node operatorNode = operatorStack.pop();
             operatorNode.right = operandStack.pop();
             operatorNode.left = operandStack.pop();
             operandStack.push(operatorNode);
@@ -96,18 +119,16 @@ public class LogicalExpressionTree {
     }
 
     private int getOperatorPriority(String operator) {
-        if (operator.equals("~")) {
-            return 3;  // NOT tiene la mayor prioridad
+        if (operator.equals("~") || operator.equals("^")) {
+            return 3;
         } else if (operator.equals("&")) {
-            return 2;  // AND tiene una prioridad intermedia
-        } else if (operator.equals("|") || operator.equals("^")) {
-            return 1;  // OR y XOR tienen la menor prioridad
+            return 2;
+        } else if (operator.equals("|")) {
+            return 1;
         } else {
             return 0;
         }
     }
-
-
 
     public void printExpression() {
         printExpression(root);
@@ -121,22 +142,27 @@ public class LogicalExpressionTree {
         }
     }
 
-    public static Queue<LogicalToken> Tokenizer(String expression) {
+
+    public static Queue<LogicalToken> Tokenizer(String expression){
         LinkedList<LogicalToken> linkedList = new LinkedList<>();
-        for (char c : expression.toCharArray()) {
-            if (c == '&' || c == '|' || c == '^' || c == '~') {
-                LogicalToken token = new LogicalToken(Character.toString(c), LogicalTokenType.LOGICAL_OPERATOR);
+        for (char c : expression.toCharArray()){
+            if (c == '&' ||  c == '|'|| c== '^' ) {
+                LogicalToken token = new LogicalToken(Character.toString(c), LogicalTokenType.OPERATOR_BINARIO);
                 linkedList.add(token);
             }
-            if (c == '(') {
+            if (c == '~') {
+                LogicalToken token = new LogicalToken(Character.toString(c), LogicalTokenType.OPERATOR_UNARIO);
+                linkedList.add(token);
+            }
+            if (c == '(' ){
                 LogicalToken token = new LogicalToken(Character.toString(c), LogicalTokenType.OPEN_PARENTHESIS);
                 linkedList.add(token);
             }
-            if (c == ')') {
+            if (c == ')'){
                 LogicalToken token = new LogicalToken(Character.toString(c), LogicalTokenType.CLOSE_PARENTHESIS);
                 linkedList.add(token);
             }
-            if (c == '0' || c == '1') {
+            if (c == '1'|| c== '0'){
                 LogicalToken token = new LogicalToken(Character.toString(c), LogicalTokenType.NUMBER);
                 linkedList.add(token);
             }
@@ -144,8 +170,9 @@ public class LogicalExpressionTree {
         return linkedList;
     }
 
+
     public boolean evaluate() {
-        return root.evaluate();
+        return root.evaluate_expr();
     }
 
 }

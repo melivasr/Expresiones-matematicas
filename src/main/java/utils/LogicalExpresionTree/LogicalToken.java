@@ -3,6 +3,7 @@ package utils.LogicalExpresionTree;
 
 public class LogicalToken {
     String data;
+
     LogicalTokenType type;
 
     public LogicalToken(String data, LogicalTokenType type) {
@@ -10,11 +11,13 @@ public class LogicalToken {
         this.type = type;
     }
 
-    public void addChar(char c) {
+    public void addChar(char c)
+    {
         data += c;
     }
 
-    public boolean isType(LogicalTokenType type) {
+    public boolean isType(LogicalTokenType type)
+    {
         return this.type == type;
     }
 
@@ -24,7 +27,13 @@ public class LogicalToken {
 
     @Override
     public String toString() {
-        return data;
+        return data ;
     }
 }
+
+
+
+
+
+
 

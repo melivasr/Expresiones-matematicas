@@ -29,12 +29,12 @@ public class ExpressionTree {
                     return leftValue + rightValue;
                 case "-":
                     return leftValue - rightValue;
-                case "*": // falta multiplicar dos negativos
+                case "*":
                     return leftValue * rightValue;
                 case "**":
                     return Math.pow(leftValue, rightValue);
 
-                case "/": //falta dividir dos negativos
+                case "/":
                     if (rightValue == 0) {
                         throw new ArithmeticException("Division by zero");
                     }

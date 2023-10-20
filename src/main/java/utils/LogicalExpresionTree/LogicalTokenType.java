@@ -1,8 +1,12 @@
 package utils.LogicalExpresionTree;
 
 public enum LogicalTokenType {
-    NUMBER,
+    OPERATOR,
+
+    OPERATOR_UNARIO,
+
+    OPERATOR_BINARIO,
     OPEN_PARENTHESIS,
     CLOSE_PARENTHESIS,
-    LOGICAL_OPERATOR
+    NUMBER,
 }
