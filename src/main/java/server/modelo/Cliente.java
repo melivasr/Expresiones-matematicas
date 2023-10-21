@@ -1,5 +1,7 @@
 package server.modelo;
 
+import org.json.JSONObject;
+
 import server.socket.ClienteConnection;
 
 /**
@@ -10,6 +12,7 @@ public class Cliente {
     private ClienteConnection clienteConnection;
     private String nombre;
     private int id;
+
 
     /**
      * Constructor de la clase Cliente.
@@ -86,4 +89,8 @@ public class Cliente {
     public void setId(int id) {
         this.id = id;
     }
+
+
 }
+
+

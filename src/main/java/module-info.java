@@ -4,6 +4,7 @@ module client.interfaz {
     requires java.xml;
     requires org.json;
     requires java.desktop;
+    requires java.scripting;
 
     opens client.interfaz to javafx.fxml;
     exports client.interfaz;

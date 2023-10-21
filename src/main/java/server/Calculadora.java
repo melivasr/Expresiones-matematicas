@@ -1,8 +1,9 @@
 package server;
 
 import org.json.JSONObject;
-import server.modelo.Cliente;
 import utils.ExpresionTree.ExpressionTree;
+import server.modelo.RegistroOperaciones;
+
 
 
 /**
@@ -17,6 +18,7 @@ public class Calculadora {
                 if (jsonObject.has("nombre")) {
                     String nombre = jsonObject.getString("nombre");
                     double resultado = evaluarNombre(nombre);
+                    RegistroOperaciones.registrarOperacion(jsonObject.getString("nombre"), resultado);
                     System.out.println("Resultado: " + resultado);
                     return resultado;
                 }
@@ -32,5 +34,6 @@ public class Calculadora {
         double resultado = expressionTree.evaluate();
         return resultado;
     }
+
 
 }

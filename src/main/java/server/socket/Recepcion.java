@@ -39,6 +39,7 @@ public class Recepcion implements Runnable {
         try {
             ServerSocket servidor= new ServerSocket(9999);
 
+
             System.out.println("Usando el puerto: " + servidor.getLocalPort());
 
             while(true){

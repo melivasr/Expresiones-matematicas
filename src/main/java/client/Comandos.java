@@ -19,10 +19,5 @@ public class Comandos {
         return "{\"comando\":\"evaluarNombre\",\"nombre\":\"%s\"}".formatted(nombre);
     }
 
-    public static String GetComandoResultado(double resultado)
-    {
-        return "{\"comando\":\"resultadoCliente\",\"result\":\"%s\"}".formatted(resultado);
-    }
-
 
 }
