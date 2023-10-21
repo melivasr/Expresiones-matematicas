@@ -5,6 +5,7 @@ import client.interfaz.EsperaController;
 import client.socket.ServerConnection;
 import javafx.application.Platform;
 import javafx.scene.control.Dialog;
+import javafx.scene.control.Label;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -41,16 +42,6 @@ public class Juego implements Runnable{
     }
 
     /**
-     * Comprueba si el juego está en curso.
-     *
-     * @return Verdadero si el juego está en curso, falso en caso contrario.
-     */
-    public boolean estaJuegoIniciado()
-    {
-        return this.juegoIniciado;
-    }
-
-    /**
      * Obtiene la instancia única de la clase Juego (patrón Singleton).
      *
      * @return La instancia única de la clase Juego.
@@ -73,15 +64,6 @@ public class Juego implements Runnable{
         instance = new Juego();
     }
 
-    /**
-     * Comprueba si es el turno del usuario actual.
-     *
-     * @return Verdadero si es el turno del usuario actual, falso en caso contrario.
-     */
-    public boolean esMiTurno()
-    {
-        return this.usuario.getId() == this.idTurnoActual;
-    }
 
     /**
      * Establece el controlador del juego.
@@ -180,18 +162,27 @@ public class Juego implements Runnable{
      * @param jsonObject El objeto JSON que contiene el comando recibido del servidor.
      */
     private void revisarComandosPrevioJuego(JSONObject jsonObject)
+
     {
         switch (jsonObject.getString("comando")) {
             case "serverIniciado":
                 this.serverIniciado(jsonObject);
                 break;
-            case "actualizarInformacion":
-                this.actualizarInformacion(jsonObject);
+            case "resultadoCliente":
+                mostrarResultado(jsonObject);
                 break;
             default:
                 System.err.println("Comando no encontrado");
 
         }
+
+    }
+
+    private void mostrarResultado(JSONObject jsonObject) {
+        String resultado = jsonObject.getString("result");
+            Platform.runLater(() -> {
+                this.esperaController.setResultadoLabel(resultado);
+            });
 
     }
 
@@ -209,43 +200,4 @@ public class Juego implements Runnable{
         this.juegoIniciado = true;
     }
 
-    /**
-     * Actualiza la información del juego en la interfaz de usuario en función de los datos recibidos del servidor.
-     *
-     * @param jsonObject El objeto JSON que contiene la información del juego.
-     */
-    private void actualizarInformacion(JSONObject jsonObject)
-    {
-
-        int numeroLinea = jsonObject.getInt("numeroLinea");
-        String tipo = jsonObject.getString("tipo");
-        String nombreActual = jsonObject.getString("nombreActual");
-        String estado = jsonObject.getString("estado");
-        String sigJugador = jsonObject.getString("nombreSigJugador");
-        int sigJugadorId = jsonObject.getInt("idSigJugador");
-        JSONArray cuadros = jsonObject.getJSONArray("cuadros");
-        this.idTurnoActual = sigJugadorId;
-
-        Platform.runLater(() -> {
-            System.out.println("Actualizando informacion");
-
-            Iterator<Object> iteratorObj = cuadros.iterator();
-            while (iteratorObj.hasNext()) {
-                Object next = iteratorObj.next();
-                try {
-
-                    int cuadro = Integer.parseInt(next.toString());
-
-                } catch (NumberFormatException e) {
-                    System.out.println(next);
-                }
-
-            }
-        });
-
-        if(estado.equals("finalizado"))
-        {
-            Juego.ResetInstance();
-        }
-    }
 }

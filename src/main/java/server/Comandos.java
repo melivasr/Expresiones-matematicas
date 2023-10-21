@@ -1,9 +1,5 @@
 package server;
 
-import server.modelo.Cliente;
-import utils.Doble.ListaDoble;
-import utils.Doble.NodoDoble;
-
 /**
  * Clase que se encarga de obtener los comandos
  */
@@ -31,72 +27,8 @@ public class Comandos {
     {
         return "{\"comando\":\"serverIniciado\",\"idTurnoActual\":\"%d\",\"nombreUsuario\":\"%s\"}".formatted(usuarioId,nombreUsuario);
     }
-
-    /**
-     * Genera un comando para actualizar los cuadros en el juego.
-     *
-     * @param numeroLinea El número de línea.
-     * @param tipo El tipo de línea.
-     * @param usuarioActual El usuario actual.
-     * @param cuadros Una lista con los cuadros.
-     * @param siguienteJugadorId El identificador del siguiente jugador.
-     * @param siguienteJugadorNombre El nombre del siguiente jugador.
-     * @param juegoEstado El estado del juego.
-     * @return Un String en formato JSON con el comando para actualizar los cuadros.
-     */
-    public static String GetComandoActualizarCuadros(int numeroLinea,
-                                                     String tipo,
-                                                     Cliente usuarioActual,
-                                                     ListaDoble<Integer> cuadros,
-                                                     int siguienteJugadorId,
-                                                     String siguienteJugadorNombre,
-                                                     String juegoEstado
-                                                     )
+    public static String GetComandoResultado(double resultado)
     {
-        return """
-                {"comando":"actualizarInformacion",
-                 "numeroLinea": "%d",
-                 "tipo": "%s",
-                 "nombreActual":"%s",
-                 "cuadros": %s,
-                 "estado": "%s",
-                 "idSigJugador": "%d",
-                 "nombreSigJugador": "%s",
-                }
-                """.formatted(numeroLinea,
-                tipo,
-                usuarioActual.getNombre(),
-                GenerarCuadros(cuadros),
-                juegoEstado,
-                siguienteJugadorId,
-                siguienteJugadorNombre
-
-                );
-
+        return "{\"comando\":\"resultadoCliente\",\"result\":\"%s\"}".formatted(resultado);
     }
-
-    /**
-     * Genera un String en formato JSON con los cuadros.
-     *
-     * @param listaDoble Una lista doble con los cuadros.
-     * @return Un String en formato JSON con los cuadros.
-     */
-    private static String GenerarCuadros(ListaDoble<Integer> listaDoble){
-        StringBuilder jsonBuilder = new StringBuilder("[");
-        NodoDoble<Integer> nodoActual = listaDoble.getHead();
-        while(nodoActual != null)
-        {
-            jsonBuilder.append(nodoActual.getData());
-            nodoActual = nodoActual.getNext();
-            if(nodoActual != null)
-            {
-                jsonBuilder.append(", ");
-            }
-
-        }
-        jsonBuilder.append("]");
-
-        return jsonBuilder.toString();
-    }
-
 }

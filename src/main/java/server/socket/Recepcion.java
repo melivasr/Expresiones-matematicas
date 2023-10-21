@@ -1,6 +1,7 @@
 package server.socket;
 
 import org.json.JSONObject;
+import server.Calculadora;
 import server.Comandos;
 import server.modelo.Cliente;
 import utils.Cola.Cola;
@@ -43,16 +44,19 @@ public class Recepcion implements Runnable {
             while(true){
                 Socket misocket = servidor.accept();
 
-                ClienteConnection conexcion=new ClienteConnection("nick", "ip", misocket);
+                ClienteConnection conexion=new ClienteConnection("nick", "ip", misocket);
                 int usuarioId = this.cantidadUsuariosConectados;
                 this.cantidadUsuariosConectados ++;
-                String mensajeMetadata = conexcion.LeerEntrada();
+                String mensajeMetadata = conexion.LeerEntrada();
                 JSONObject jsonObject = new JSONObject(mensajeMetadata);
                 System.out.println(mensajeMetadata);
-                Cliente cliente = new Cliente(conexcion, jsonObject.getString("nombre"), usuarioId);
-                conexcion.Enviar_mensaje(Comandos.GetComandoConexion(usuarioId));
+                conexion.Enviar_mensaje(Comandos.GetComandoConexion(usuarioId));
                 System.out.println(Comandos.GetComandoConexion(usuarioId));
-                clienteCola.enqueue(cliente);
+                double resultado = Calculadora.EfectuarOperacion(jsonObject);
+                String comandoResultado = Comandos.GetComandoResultado(resultado);
+                conexion.Enviar_mensaje(comandoResultado);
+                System.out.println(comandoResultado);
+
             }
 
         } catch (IOException e) {

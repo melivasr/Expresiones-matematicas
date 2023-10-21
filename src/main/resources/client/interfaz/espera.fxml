@@ -24,7 +24,7 @@
             <Font name="Bodoni MT" size="19.0" />
          </font>
       </Label>
-      <Button fx:id="botonAbrir" layoutX="266.0" layoutY="186.0" mnemonicParsing="false" onAction="#iniciarJuego" prefHeight="19.0" prefWidth="70.0" text="Calcular">
+      <Button fx:id="calcularBoton" layoutX="266.0" layoutY="186.0" mnemonicParsing="false" onAction="#iniciarCalculadora" prefHeight="19.0" prefWidth="70.0" text="Calcular">
          <font>
             <Font size="9.0" />
          </font>

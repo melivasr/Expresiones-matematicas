@@ -20,9 +20,12 @@ public class EsperaController {
     @FXML
     private Button aceptarNombre;
 
+    @FXML
+    private Label resultadoLabel;
+
     // Botón para abrir la ventana del juego
     @FXML
-    private Button botonAbrir;
+    private Button calcularBoton;
 
     // Botón para ver la posición del jugador en la cola
     @FXML
@@ -36,8 +39,13 @@ public class EsperaController {
     @FXML
     private Label posicionCola;
 
+    public void setResultadoLabel(String resultadoLabel) {
+        this.posicionCola.setText(resultadoLabel);
+    }
+
     // Variable para almacenar la instancia de Stage
     public Stage gameControllerStage;
+
 
     /**
      * Actualiza la posición del jugador en la cola.
@@ -65,7 +73,7 @@ public class EsperaController {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("game1.fxml"));
             Stage stage= new Stage();
             Scene scene = new Scene(fxmlLoader.load(), 624, 750);
-            stage.setTitle("Connect Dots");
+            stage.setTitle("Calculadora");
             stage.setScene(scene);
             stage.show();
             this.gameControllerStage = stage;
@@ -79,6 +87,7 @@ public class EsperaController {
 
     }
 
+
     /**
      * Inicia el juego. Si el campo de nombre está vacío, no se hace nada.
      * Si no está vacío, se conecta al juego con el nombre proporcionado.
@@ -86,21 +95,20 @@ public class EsperaController {
      * @param event el evento de acción que activó este método.
      */
     @FXML
-    public void iniciarJuego(ActionEvent event) {
+    public void iniciarCalculadora(ActionEvent event) {
         if(campoNombre.getText().isEmpty())
         {
             return;
         }
-
+        Juego.GetInstance().setEsperaController(this);
         Juego.GetInstance().Conectarse(campoNombre.getText());
 
-        String nombreUsuario = campoNombre.getText();
-        campoNombre.setDisable(true);
-        botonAbrir.setText("Esperando mas jugadores");
-        botonAbrir.setPrefWidth(140);
-        botonAbrir.setLayoutX(230);
-        botonAbrir.setDisable(true);
-        Juego.GetInstance().setEsperaController(this);
+        String expresion = campoNombre.getText();
+        campoNombre.setDisable(false);
+        calcularBoton.setText("Calculando");
+        calcularBoton.setPrefWidth(140);
+        calcularBoton.setLayoutX(230);
+        calcularBoton.setDisable(false);
     }
     /**
      * Reinicia la ventana del juego. Cierra la ventana actual y habilita
@@ -110,9 +118,9 @@ public class EsperaController {
     {
         this.gameControllerStage.close();
         campoNombre.setDisable(false);
-        botonAbrir.setText("Conectarse");
-        botonAbrir.setPrefWidth(70);
-        botonAbrir.setLayoutX(266);
-        botonAbrir.setDisable(false);
+        calcularBoton.setText("Conectarse");
+        calcularBoton.setPrefWidth(70);
+        calcularBoton.setLayoutX(266);
+        calcularBoton.setDisable(false);
     }
 }
