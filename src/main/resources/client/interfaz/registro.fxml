@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<?import javafx.scene.text.Font?>
+<AnchorPane prefHeight="315.0" prefWidth="600.0" style="-fx-background-color: #4682B4;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.interfaz.RegistroController">
+    <children>
+        <TableView layoutX="25.0" layoutY="20.0" prefHeight="230.0" prefWidth="550.0">
+            <columns>
+                <TableColumn text="Expresión" prefWidth="180.0" />
+                <TableColumn text="Resultado" prefWidth="170.0" />
+                <TableColumn text="Fecha" prefWidth="200.0" />
+            </columns>
+        </TableView>
+        <Button fx:id="backBoton" layoutX="500.0" layoutY="270.0" mnemonicParsing="false" onAction="#volverASeleccion" prefHeight="20.0" prefWidth="70.0" text="Back">
+            <font>
+                <Font size="11.0" />
+            </font>
+        </Button>
+    </children>
+</AnchorPane>
+

@@ -1,5 +1,6 @@
 package client.interfaz;
 
+import client.Comandos;
 import client.Juego;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -26,6 +27,8 @@ public class Window1Controller {
     // Etiqueta para mostrar la posición del jugador en la cola
     @FXML
     private Label resultado;
+    private String nombre;
+
 
     public void setResultadoLabel(String resultadoLabel) {
         this.resultado.setText(resultadoLabel);
@@ -52,9 +55,12 @@ public class Window1Controller {
             return;
         }
         Juego.GetInstance().setEsperaController(this);
-        Juego.GetInstance().Conectarse(campoOperacion.getText(), this.isLogicalOperation);
+        String comando = isLogicalOperation ?
+                Comandos.GetComandoLogicalOperation(campoOperacion.getText(), nombre) :
+                Comandos.GetComandoOperation(campoOperacion.getText(), nombre);
 
-        String expresion = campoOperacion.getText();
+        Juego.GetInstance().Conectarse(comando);
+
         campoOperacion.setDisable(false);
         calcularBoton.setText("Calculando");
         calcularBoton.setPrefWidth(140);
@@ -64,5 +70,9 @@ public class Window1Controller {
 
     public void setIsLogicalOperation() {
         isLogicalOperation = true;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 }

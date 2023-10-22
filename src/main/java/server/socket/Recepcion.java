@@ -46,13 +46,9 @@ public class Recepcion implements Runnable {
                 Socket misocket = servidor.accept();
 
                 ClienteConnection conexion=new ClienteConnection("nick", "ip", misocket);
-                int usuarioId = this.cantidadUsuariosConectados;
-                this.cantidadUsuariosConectados ++;
                 String mensajeMetadata = conexion.LeerEntrada();
                 JSONObject jsonObject = new JSONObject(mensajeMetadata);
                 System.out.println(mensajeMetadata);
-                conexion.Enviar_mensaje(Comandos.GetComandoConexion(usuarioId));
-                System.out.println(Comandos.GetComandoConexion(usuarioId));
                 String resultado = Calculadora.EfectuarOperacion(jsonObject);
                 String comandoResultado = Comandos.GetComandoResultado(resultado);
                 conexion.Enviar_mensaje(comandoResultado);

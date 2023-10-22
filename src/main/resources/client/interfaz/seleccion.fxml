@@ -14,11 +14,6 @@
                 <Font name="Bodoni MT" size="16.0" />
             </font>
         </Label>
-        <Button fx:id="guardarNombre" layoutX="430.0" layoutY="175.0" mnemonicParsing="false" onAction="#ShowWindow2" prefHeight="20.0" prefWidth="70.0" text="Guardar">
-            <font>
-                <Font size="13.0" />
-            </font>
-        </Button>
         <Label layoutX="245.0" layoutY="35.0" text="Calculadora" textFill="WHITE">
             <font>
                 <Font name="Bodoni MT" size="25.0" />
@@ -34,7 +29,7 @@
                 <Font size="13.0" />
             </font>
         </Button>
-        <Button fx:id="expresionesEvaluadas" layoutX="70.0" layoutY="232.0" mnemonicParsing="false" onAction="#ShowWindow2" prefHeight="30.0" prefWidth="170.0" text="Expresiones Evaluadas">
+        <Button fx:id="expresionesEvaluadas" layoutX="70.0" layoutY="232.0" mnemonicParsing="false" onAction="#ShowRegistro" prefHeight="30.0" prefWidth="170.0" text="Expresiones Evaluadas">
             <font>
                 <Font size="13.0" />
             </font>

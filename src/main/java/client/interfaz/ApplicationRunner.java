@@ -62,6 +62,8 @@ public class ApplicationRunner extends Application {
             this.esperaControllerStage = stage;
             Window1Controller window1Controller = fxmlLoader.getController();
             window1Controller.setEsperaStage(stage);
+            String nombre = campoNombre.getText();
+            window1Controller.setNombre(nombre);
 
 
         } catch (Exception e) {
@@ -82,8 +84,27 @@ public class ApplicationRunner extends Application {
             Window1Controller window1Controller = fxmlLoader.getController();
             window1Controller.setEsperaStage(stage);
             window1Controller.setIsLogicalOperation();
+            String nombre = campoNombre.getText();
+            window1Controller.setNombre(nombre);
 
 
+        } catch (Exception e) {
+            System.out.println("No se puede inicar la ventana del juego");
+            System.out.println(e.toString());
+        }
+    }
+
+    public void ShowRegistro(ActionEvent actionEvent) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("registro.fxml"));
+            Stage stage = new Stage();
+            Scene scene = new Scene(fxmlLoader.load(), 600, 315);
+            stage.setTitle("Registro de Operaciones");
+            stage.setScene(scene);
+            stage.show();
+            this.esperaControllerStage = stage;
+            RegistroController registroController = fxmlLoader.getController();
+            registroController.setEsperaStage(stage);
         } catch (Exception e) {
             System.out.println("No se puede inicar la ventana del juego");
             System.out.println(e.toString());

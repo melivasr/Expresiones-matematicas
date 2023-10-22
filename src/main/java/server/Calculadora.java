@@ -15,19 +15,20 @@ public class Calculadora {
         System.out.println(jsonObject.toString());
         switch (jsonObject.getString("comando")) {
             case "evaluarExpression":
-                if (jsonObject.has("expression")) {
+                if (jsonObject.has("expression") && jsonObject.has("nombre")) {
                     String expression = jsonObject.getString("expression");
+                    String nombre = jsonObject.getString("nombre");
                     String resultado = ((Double)evaluarExpression(expression)).toString();
-                    RegistroOperaciones.registrarOperacion(jsonObject.getString("expression"), resultado);
+                    RegistroOperaciones.registrarOperacion(jsonObject.getString("nombre"), jsonObject.getString("expression"), resultado);
                     System.out.println("Resultado: " + resultado);
                     return resultado;
                 }
                 break;
             case "evaluarExpressionLogica":
-                if (jsonObject.has("expression")) {
+                if (jsonObject.has("expression") && jsonObject.has("nombre")) {
                     String expression = jsonObject.getString("expression");
                     String resultado = ((Boolean)evaluarExpressionLogical(expression)).toString();
-                    RegistroOperaciones.registrarOperacion(jsonObject.getString("expression"), resultado);
+                    RegistroOperaciones.registrarOperacion(jsonObject.getString("nombre"), jsonObject.getString("expression"), resultado);
                     System.out.println("Resultado: " + resultado);
                     return resultado;
                 }
@@ -35,7 +36,7 @@ public class Calculadora {
             default:
                 System.err.println("Comando no encontrado");
         }
-        return "CALCULATION ERROR";
+        return "Calculation Error";
     }
 
     public static double evaluarExpression(String nombre) {

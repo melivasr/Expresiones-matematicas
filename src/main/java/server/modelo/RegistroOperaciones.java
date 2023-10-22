@@ -8,19 +8,21 @@ import java.util.Date;
 
 public class RegistroOperaciones {
 
-    private static final String CSV_FILE_PATH = "data/registro_operaciones.csv";
+    private static final String FILE_PATH = "data/registro_operaciones_";
+    private static final String CSV = ".csv";
     private static final String CSV_HEADER = "Expresion, Resultado, Fecha";
 
-    public static void registrarOperacion(String expresion, String resultado) {
+    public static void registrarOperacion(String nombre, String expresion, String resultado) {
         try {
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String fecha = dateFormat.format(new Date());
-            String registro = String.format("%s,%s,%s",expresion, resultado, fecha);
+            String registro = String.format("%s,%s,%s", expresion, resultado, fecha);
+            String userPath = FILE_PATH + nombre + CSV;
 
-            File file = new File(CSV_FILE_PATH);
+            File file = new File(userPath);
             boolean fileExists = file.exists();
 
-            FileWriter fileWriter = new FileWriter(CSV_FILE_PATH, true);
+            FileWriter fileWriter = new FileWriter(userPath, true);
 
             if (!fileExists) {
                 fileWriter.append(CSV_HEADER);
