@@ -13,12 +13,17 @@
                 <Font name="Bodoni MT" size="25.0" />
             </font>
         </Label>
-        <Button fx:id="calculadoraNumerica" layoutX="70.0" layoutY="110.0" mnemonicParsing="false" onAction="#CambiarPantalla" prefHeight="50.0" prefWidth="190.0" text="Operaciones Algebraicas">
+        <Button fx:id="calculadoraNumerica" layoutX="70.0" layoutY="100.0" mnemonicParsing="false" onAction="#ShowWindow1" prefHeight="30.0" prefWidth="170.0" text="Operaciones Algebraicas">
             <font>
                 <Font size="13.0" />
             </font>
         </Button>
-        <Button fx:id="calculadoraBooleana" layoutX="70.0" layoutY="186.0" mnemonicParsing="false" onAction="#iniciarCalculadora" prefHeight="50.0" prefWidth="190.0" text="Operaciones Lógicas">
+        <Button fx:id="calculadoraBooleana" layoutX="70.0" layoutY="166.0" mnemonicParsing="false" onAction="#ShowWindow2" prefHeight="30.0" prefWidth="170.0" text="Operaciones Lógicas">
+            <font>
+                <Font size="13.0" />
+            </font>
+        </Button>
+        <Button fx:id="expresionesEvaluadas" layoutX="70.0" layoutY="232.0" mnemonicParsing="false" onAction="#ShowWindow2" prefHeight="30.0" prefWidth="170.0" text="Expresiones Evaluadas">
             <font>
                 <Font size="13.0" />
             </font>

@@ -3,21 +3,18 @@ package client.interfaz;
 import client.Juego;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import utils.Doble.ListaDoble;
 
-import java.awt.*;
 import java.io.IOException;
 
-public class EsperaController {
+public class Window1Controller {
 
     @FXML
     public Button backBoton;
+    public Button camaraBoton;
 
     @FXML
     private Button calcularBoton;
@@ -28,10 +25,10 @@ public class EsperaController {
 
     // Etiqueta para mostrar la posición del jugador en la cola
     @FXML
-    private Label posicionCola;
+    private Label resultado;
 
     public void setResultadoLabel(String resultadoLabel) {
-        this.posicionCola.setText(resultadoLabel);
+        this.resultado.setText(resultadoLabel);
     }
 
     // Variable para almacenar la instancia de Stage
@@ -62,17 +59,7 @@ public class EsperaController {
         calcularBoton.setLayoutX(230);
         calcularBoton.setDisable(false);
     }
-    /**
-     * Reinicia la ventana del juego. Cierra la ventana actual y habilita
-     * nuevamente el campo de nombre y el botón de conexión.
-     */
-    public void resetWindow()
-    {
-        this.esperaStage.close();
-        campoNombre.setDisable(false);
-        calcularBoton.setText("Conectarse");
-        calcularBoton.setPrefWidth(70);
-        calcularBoton.setLayoutX(266);
-        calcularBoton.setDisable(false);
+
+    public void setIsBoolean() {
     }
 }

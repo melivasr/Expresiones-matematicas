@@ -6,6 +6,7 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 /**
@@ -17,6 +18,7 @@ import javafx.stage.Stage;
 public class ApplicationRunner extends Application {
     public Stage esperaControllerStage;
     public Stage seleccionStage;
+    public Button expresionesEvaluadas;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -46,17 +48,38 @@ public class ApplicationRunner extends Application {
     public Stage getSeleccionStage() {
         return seleccionStage;
     }
-    public void CambiarPantalla(ActionEvent actionEvent) {
+    public void ShowWindow1(ActionEvent actionEvent) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("espera.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("window1.fxml"));
             Stage stage = new Stage();
             Scene scene = new Scene(fxmlLoader.load(), 600, 315);
             stage.setTitle("Calculadora Algebraica");
             stage.setScene(scene);
             stage.show();
             this.esperaControllerStage = stage;
-            EsperaController esperaController = fxmlLoader.getController();
-            esperaController.setEsperaStage(stage);
+            Window1Controller window1Controller = fxmlLoader.getController();
+            window1Controller.setEsperaStage(stage);
+            window1Controller.setIsBoolean();
+
+
+        } catch (Exception e) {
+            System.out.println("No se puede inicar la ventana del juego");
+            System.out.println(e.toString());
+        }
+    }
+
+    public void ShowWindow2(ActionEvent actionEvent) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("window2.fxml"));
+            Stage stage = new Stage();
+            Scene scene = new Scene(fxmlLoader.load(), 600, 315);
+            stage.setTitle("Calculadora Booleana");
+            stage.setScene(scene);
+            stage.show();
+            this.esperaControllerStage = stage;
+            Window1Controller window1Controller = fxmlLoader.getController();
+            window1Controller.setEsperaStage(stage);
+            window1Controller.setIsBoolean();
 
 
         } catch (Exception e) {

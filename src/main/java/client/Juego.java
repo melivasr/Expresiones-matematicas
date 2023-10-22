@@ -1,18 +1,13 @@
 package client;
 
 import client.Model.Usuario;
-import client.interfaz.EsperaController;
+import client.interfaz.Window1Controller;
 import client.socket.ServerConnection;
 import javafx.application.Platform;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.Label;
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.Socket;
-import java.util.Iterator;
-import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -33,7 +28,7 @@ public class Juego implements Runnable{
 
     private boolean leyendoMensajes = true;
 
-    private EsperaController esperaController;
+    private Window1Controller window1Controller;
 
     private Juego ()
     {
@@ -74,10 +69,10 @@ public class Juego implements Runnable{
     /**
      * Establece el controlador de espera.
      *
-     * @param esperaController El controlador de espera.
+     * @param window1Controller El controlador de espera.
      */
-    public void setEsperaController(EsperaController esperaController) {
-        this.esperaController = esperaController;
+    public void setEsperaController(Window1Controller window1Controller) {
+        this.window1Controller = window1Controller;
     }
 
     /**
@@ -181,7 +176,7 @@ public class Juego implements Runnable{
     private void mostrarResultado(JSONObject jsonObject) {
         String resultado = jsonObject.getString("result");
             Platform.runLater(() -> {
-                this.esperaController.setResultadoLabel(resultado);
+                this.window1Controller.setResultadoLabel(resultado);
             });
 
     }
