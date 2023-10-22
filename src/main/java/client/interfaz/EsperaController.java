@@ -11,27 +11,18 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import utils.Doble.ListaDoble;
 
+import java.awt.*;
+import java.io.IOException;
+
 public class EsperaController {
 
-    // Lista para almacenar los jugadores
-    ListaDoble<String> jugadores = new ListaDoble<String>();
-
-    // Lista para almacenar los jugadores
     @FXML
-    private Button aceptarNombre;
+    public Button backBoton;
 
-    @FXML
-    private Label resultadoLabel;
-
-    // Botón para abrir la ventana del juego
     @FXML
     private Button calcularBoton;
 
-    // Botón para ver la posición del jugador en la cola
-    @FXML
-    private Button verPosicion;
 
-    // Campo de texto para ingresar el nombre del jugador
     @FXML
     private TextField campoNombre;
 
@@ -44,56 +35,17 @@ public class EsperaController {
     }
 
     // Variable para almacenar la instancia de Stage
-    public Stage gameControllerStage;
+    private Stage esperaStage;
 
-
-    /**
-     * Actualiza la posición del jugador en la cola.
-     *
-     * @param event El evento que activa el método.
-     */
     @FXML
-    public void actualizarPosicion(ActionEvent event){
-        posicionCola.setText(String.valueOf(jugadores.getNodePosition(campoNombre.getText())));
-        System.out.println(jugadores.getNodePosition(campoNombre.getText()));
-    }
-    public ListaDoble<String> getJugadores() {
-        return jugadores;
+    public void volverASeleccion(ActionEvent actionEvent) throws IOException {
+        esperaStage.close();
     }
 
-    /**
-     * Cambia la pantalla del juego.
-     *
-     * @param nombre El nombre del jugador.
-     * @param gameController El controlador del juego.
-     */
-    public void CambiarPantalla(String nombre, Object gameController)
-    {
-        try{
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("game1.fxml"));
-            Stage stage= new Stage();
-            Scene scene = new Scene(fxmlLoader.load(), 624, 750);
-            stage.setTitle("Calculadora");
-            stage.setScene(scene);
-            stage.show();
-            this.gameControllerStage = stage;
-
-            gameController = fxmlLoader.getController();
-
-        }catch (Exception e){
-            System.out.println("No se puede inicar la ventana del juego");
-            System.out.println(e.toString());
-        }
-
+    @FXML
+    public void setEsperaStage(Stage stage) {
+        esperaStage = stage;
     }
-
-
-    /**
-     * Inicia el juego. Si el campo de nombre está vacío, no se hace nada.
-     * Si no está vacío, se conecta al juego con el nombre proporcionado.
-     *
-     * @param event el evento de acción que activó este método.
-     */
     @FXML
     public void iniciarCalculadora(ActionEvent event) {
         if(campoNombre.getText().isEmpty())
@@ -116,7 +68,7 @@ public class EsperaController {
      */
     public void resetWindow()
     {
-        this.gameControllerStage.close();
+        this.esperaStage.close();
         campoNombre.setDisable(false);
         calcularBoton.setText("Conectarse");
         calcularBoton.setPrefWidth(70);
