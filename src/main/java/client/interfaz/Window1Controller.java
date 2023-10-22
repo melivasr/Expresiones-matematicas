@@ -21,7 +21,7 @@ public class Window1Controller {
 
 
     @FXML
-    private TextField campoNombre;
+    private TextField campoOperacion;
 
     // Etiqueta para mostrar la posición del jugador en la cola
     @FXML
@@ -34,6 +34,8 @@ public class Window1Controller {
     // Variable para almacenar la instancia de Stage
     private Stage esperaStage;
 
+    private boolean isLogicalOperation;
+
     @FXML
     public void volverASeleccion(ActionEvent actionEvent) throws IOException {
         esperaStage.close();
@@ -45,21 +47,22 @@ public class Window1Controller {
     }
     @FXML
     public void iniciarCalculadora(ActionEvent event) {
-        if(campoNombre.getText().isEmpty())
+        if(campoOperacion.getText().isEmpty())
         {
             return;
         }
         Juego.GetInstance().setEsperaController(this);
-        Juego.GetInstance().Conectarse(campoNombre.getText());
+        Juego.GetInstance().Conectarse(campoOperacion.getText(), this.isLogicalOperation);
 
-        String expresion = campoNombre.getText();
-        campoNombre.setDisable(false);
+        String expresion = campoOperacion.getText();
+        campoOperacion.setDisable(false);
         calcularBoton.setText("Calculando");
         calcularBoton.setPrefWidth(140);
         calcularBoton.setLayoutX(230);
         calcularBoton.setDisable(false);
     }
 
-    public void setIsBoolean() {
+    public void setIsLogicalOperation() {
+        isLogicalOperation = true;
     }
 }

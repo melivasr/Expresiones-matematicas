@@ -53,7 +53,7 @@ public class Recepcion implements Runnable {
                 System.out.println(mensajeMetadata);
                 conexion.Enviar_mensaje(Comandos.GetComandoConexion(usuarioId));
                 System.out.println(Comandos.GetComandoConexion(usuarioId));
-                double resultado = Calculadora.EfectuarOperacion(jsonObject);
+                String resultado = Calculadora.EfectuarOperacion(jsonObject);
                 String comandoResultado = Comandos.GetComandoResultado(resultado);
                 conexion.Enviar_mensaje(comandoResultado);
                 System.out.println(comandoResultado);

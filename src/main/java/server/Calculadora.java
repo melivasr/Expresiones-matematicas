@@ -3,7 +3,7 @@ package server;
 import org.json.JSONObject;
 import utils.ExpresionTree.ExpressionTree;
 import server.modelo.RegistroOperaciones;
-
+import utils.LogicalExpresionTree.LogicalExpressionTree;
 
 
 /**
@@ -11,14 +11,23 @@ import server.modelo.RegistroOperaciones;
  */
 public class Calculadora {
 
-    public static double EfectuarOperacion(JSONObject jsonObject) {
+    public static String EfectuarOperacion(JSONObject jsonObject) {
         System.out.println(jsonObject.toString());
         switch (jsonObject.getString("comando")) {
-            case "evaluarNombre":
-                if (jsonObject.has("nombre")) {
-                    String nombre = jsonObject.getString("nombre");
-                    double resultado = evaluarNombre(nombre);
-                    RegistroOperaciones.registrarOperacion(jsonObject.getString("nombre"), resultado);
+            case "evaluarExpression":
+                if (jsonObject.has("expression")) {
+                    String expression = jsonObject.getString("expression");
+                    String resultado = ((Double)evaluarExpression(expression)).toString();
+                    RegistroOperaciones.registrarOperacion(jsonObject.getString("expression"), resultado);
+                    System.out.println("Resultado: " + resultado);
+                    return resultado;
+                }
+                break;
+            case "evaluarExpressionLogica":
+                if (jsonObject.has("expression")) {
+                    String expression = jsonObject.getString("expression");
+                    String resultado = ((Boolean)evaluarExpressionLogical(expression)).toString();
+                    RegistroOperaciones.registrarOperacion(jsonObject.getString("expression"), resultado);
                     System.out.println("Resultado: " + resultado);
                     return resultado;
                 }
@@ -26,13 +35,15 @@ public class Calculadora {
             default:
                 System.err.println("Comando no encontrado");
         }
-        return 0;
+        return "CALCULATION ERROR";
     }
 
-    public static double evaluarNombre(String nombre) {
-        ExpressionTree expressionTree = new ExpressionTree(nombre);
-        double resultado = expressionTree.evaluate();
-        return resultado;
+    public static double evaluarExpression(String nombre) {
+        return new ExpressionTree(nombre).evaluate();
+    }
+
+    public static boolean evaluarExpressionLogical(String nombre) {
+        return new LogicalExpressionTree(nombre).evaluate();
     }
 
 

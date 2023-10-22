@@ -8,7 +8,18 @@
 
 <AnchorPane prefHeight="315.0" prefWidth="600.0" style="-fx-background-color: #551A8B;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.interfaz.ApplicationRunner">
     <children>
-        <Label layoutX="250.0" layoutY="42.0" text="Calculadora" textFill="WHITE">
+        <TextField fx:id="campoNombre" layoutX="395.0" layoutY="133.0" />
+        <Label layoutX="392.0" layoutY="96.0" text="Ingrese su Nombre:" textFill="WHITE">
+            <font>
+                <Font name="Bodoni MT" size="16.0" />
+            </font>
+        </Label>
+        <Button fx:id="guardarNombre" layoutX="430.0" layoutY="175.0" mnemonicParsing="false" onAction="#ShowWindow2" prefHeight="20.0" prefWidth="70.0" text="Guardar">
+            <font>
+                <Font size="13.0" />
+            </font>
+        </Button>
+        <Label layoutX="245.0" layoutY="35.0" text="Calculadora" textFill="WHITE">
             <font>
                 <Font name="Bodoni MT" size="25.0" />
             </font>

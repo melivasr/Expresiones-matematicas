@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="315.0" prefWidth="600.0" style="-fx-background-color: #551A8B;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.interfaz.Window1Controller">
+<AnchorPane prefHeight="315.0" prefWidth="600.0" style="-fx-background-color: #4682B4;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.interfaz.Window1Controller">
    <children>
-      <TextField fx:id="campoNombre" layoutX="226.0" layoutY="133.0" />
+      <TextField fx:id="campoOperacion" layoutX="226.0" layoutY="133.0" />
       <Label layoutX="192.0" layoutY="86.0" text="Ingrese la operación" textFill="WHITE">
          <font>
             <Font name="Bodoni MT" size="23.0" />

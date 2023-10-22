@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 /**
@@ -19,6 +20,8 @@ public class ApplicationRunner extends Application {
     public Stage esperaControllerStage;
     public Stage seleccionStage;
     public Button expresionesEvaluadas;
+    public TextField campoNombre;
+    public Button guardarNombre;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -59,7 +62,6 @@ public class ApplicationRunner extends Application {
             this.esperaControllerStage = stage;
             Window1Controller window1Controller = fxmlLoader.getController();
             window1Controller.setEsperaStage(stage);
-            window1Controller.setIsBoolean();
 
 
         } catch (Exception e) {
@@ -70,16 +72,16 @@ public class ApplicationRunner extends Application {
 
     public void ShowWindow2(ActionEvent actionEvent) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("window2.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("window1.fxml"));
             Stage stage = new Stage();
             Scene scene = new Scene(fxmlLoader.load(), 600, 315);
-            stage.setTitle("Calculadora Booleana");
+            stage.setTitle("Calculadora Lógica");
             stage.setScene(scene);
             stage.show();
             this.esperaControllerStage = stage;
             Window1Controller window1Controller = fxmlLoader.getController();
             window1Controller.setEsperaStage(stage);
-            window1Controller.setIsBoolean();
+            window1Controller.setIsLogicalOperation();
 
 
         } catch (Exception e) {
@@ -87,4 +89,5 @@ public class ApplicationRunner extends Application {
             System.out.println(e.toString());
         }
     }
+
 }

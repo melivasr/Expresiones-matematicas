@@ -27,7 +27,7 @@ public class Comandos {
     {
         return "{\"comando\":\"serverIniciado\",\"idTurnoActual\":\"%d\",\"nombreUsuario\":\"%s\"}".formatted(usuarioId,nombreUsuario);
     }
-    public static String GetComandoResultado(double resultado)
+    public static String GetComandoResultado(String resultado)
     {
         return "{\"comando\":\"resultadoCliente\",\"result\":\"%s\"}".formatted(resultado);
     }

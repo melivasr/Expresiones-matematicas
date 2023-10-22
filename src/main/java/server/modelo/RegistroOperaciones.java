@@ -11,11 +11,11 @@ public class RegistroOperaciones {
     private static final String CSV_FILE_PATH = "data/registro_operaciones.csv";
     private static final String CSV_HEADER = "Expresion, Resultado, Fecha";
 
-    public static void registrarOperacion(String expresion, double resultado) {
+    public static void registrarOperacion(String expresion, String resultado) {
         try {
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String fecha = dateFormat.format(new Date());
-            String registro = String.format("%s,%.2f,%s",expresion, resultado, fecha);
+            String registro = String.format("%s,%s,%s",expresion, resultado, fecha);
 
             File file = new File(CSV_FILE_PATH);
             boolean fileExists = file.exists();

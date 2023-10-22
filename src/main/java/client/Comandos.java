@@ -1,7 +1,5 @@
 package client;
 
-import client.Model.Usuario;
-
 /**
  * Clase que proporciona métodos para generar comandos en formato JSON.
  */
@@ -14,9 +12,14 @@ public class Comandos {
      * @param nombre El nombre del usuario que se está conectando.
      * @return El comando de conexión en formato JSON.
      */
-    public static String GetComandoConexion(String nombre)
+    public static String GetComandoOperation(String expression)
     {
-        return "{\"comando\":\"evaluarNombre\",\"nombre\":\"%s\"}".formatted(nombre);
+        return "{\"comando\":\"evaluarExpression\",\"expression\":\"%s\"}".formatted(expression);
+    }
+
+    public static String GetComandoLogicalOperation(String expression)
+    {
+        return "{\"comando\":\"evaluarExpressionLogica\",\"expression\":\"%s\"}".formatted(expression);
     }
 
 

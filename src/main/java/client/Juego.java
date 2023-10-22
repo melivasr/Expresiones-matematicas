@@ -91,14 +91,15 @@ public class Juego implements Runnable{
      * @param name El nombre del usuario.
      * @return Verdadero si la conexión se realizó con éxito, falso en caso contrario.
      */
-    public boolean Conectarse(String name)
+    public boolean Conectarse(String name, boolean isLogicalOperation)
     {
         Socket misocket = null;
         try {
             misocket = new Socket("127.0.0.1", 9999);
             ServerConnection cliente = new ServerConnection(misocket);
-            cliente.Enviar_mensaje(Comandos.GetComandoConexion(name));
-            System.out.println(Comandos.GetComandoConexion(name));
+            String comando = isLogicalOperation ? Comandos.GetComandoLogicalOperation(name) : Comandos.GetComandoOperation(name);
+            cliente.Enviar_mensaje(comando);
+            System.out.println(comando);
             String entrada = cliente.LeerEntrada();
             System.out.println(entrada);
             JSONObject receivedJson = new JSONObject(entrada);
