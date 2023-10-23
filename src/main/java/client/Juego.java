@@ -2,12 +2,10 @@ package client;
 
 import client.interfaz.Window1Controller;
 import client.socket.ServerConnection;
-import javafx.application.Platform;
 import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.Socket;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Clase que representa la lógica del juego y la comunicación con el servidor.
@@ -17,20 +15,20 @@ public class Juego{
 
     private static Juego instance;
 
-    private boolean juegoIniciado;
-
     private ServerConnection server;
 
-    private int idTurnoActual;
+    public String getNombreUsuario() {
+        return nombreUsuario;
+    }
 
-    private boolean leyendoMensajes = true;
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
+    }
 
-    private Window1Controller window1Controller;
+    private String nombreUsuario;
 
     private Juego ()
     {
-        this.juegoIniciado = false;
-        this.idTurnoActual = -1;
     }
 
     /**
@@ -58,21 +56,6 @@ public class Juego{
 
 
     /**
-     * Establece el controlador del juego.
-     *
-     * @param gameController El controlador del juego.
-     */
-
-    /**
-     * Establece el controlador de espera.
-     *
-     * @param window1Controller El controlador de espera.
-     */
-    public void setEsperaController(Window1Controller window1Controller) {
-        this.window1Controller = window1Controller;
-    }
-
-    /**
      * Obtiene la conexión al servidor.
      *
      * @return La conexión al servidor.
@@ -88,7 +71,7 @@ public class Juego{
      * @param comando   El nombre del usuario
      * @return Verdadero si la conexión se realizó con éxito, falso en caso contrario.
      */
-    public boolean Conectarse(String comando)
+    public String EjecutarComando(String comando)
     {
         Socket misocket = null;
         try {
@@ -98,23 +81,11 @@ public class Juego{
             System.out.println(comando);
             String entrada = cliente.LeerEntrada();
             System.out.println(entrada);
-            mostrarResultado(new JSONObject(entrada));
-
-            return true;
+            return new JSONObject(entrada).getString("result");
 
         } catch (IOException e) {
-            System.err.println(e.getMessage());
-            return false;
+            e.printStackTrace();
+            return "";
         }
     }
-
-
-    private void mostrarResultado(JSONObject jsonObject) {
-        String resultado = jsonObject.getString("result");
-            Platform.runLater(() -> {
-                this.window1Controller.setResultadoLabel(resultado);
-            });
-
-    }
-
 }

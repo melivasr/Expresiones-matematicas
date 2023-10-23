@@ -33,6 +33,12 @@ public class Calculadora {
                     return resultado;
                 }
                 break;
+            case "tableRequest":
+                if (jsonObject.has("nombre")) {
+                    String nombre = jsonObject.getString("nombre");
+                    return RegistroOperaciones.leerOperaciones(nombre);
+                }
+                break; //tableRequest
             default:
                 System.err.println("Comando no encontrado");
         }

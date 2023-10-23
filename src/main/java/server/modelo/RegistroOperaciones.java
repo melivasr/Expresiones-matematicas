@@ -3,6 +3,8 @@ package server.modelo;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -11,6 +13,15 @@ public class RegistroOperaciones {
     private static final String FILE_PATH = "data/registro_operaciones_";
     private static final String CSV = ".csv";
     private static final String CSV_HEADER = "Expresion, Resultado, Fecha";
+
+    public static String leerOperaciones(String nombre) {
+        try {
+            return Files.readString(Paths.get(FILE_PATH + nombre + CSV));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "";
+        }
+    }
 
     public static void registrarOperacion(String nombre, String expresion, String resultado) {
         try {

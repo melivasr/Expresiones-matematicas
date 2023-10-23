@@ -11,11 +11,11 @@
 <?import javafx.scene.text.Font?>
 <AnchorPane prefHeight="315.0" prefWidth="600.0" style="-fx-background-color: #4682B4;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.interfaz.RegistroController">
     <children>
-        <TableView layoutX="25.0" layoutY="20.0" prefHeight="230.0" prefWidth="550.0">
+        <TableView fx:id="tableView" layoutX="25.0" layoutY="20.0" prefHeight="230.0" prefWidth="550.0">
             <columns>
-                <TableColumn text="Expresión" prefWidth="180.0" />
-                <TableColumn text="Resultado" prefWidth="170.0" />
-                <TableColumn text="Fecha" prefWidth="200.0" />
+                <TableColumn fx:id="expresionColumn" text="Expresión" prefWidth="180.0" />
+                <TableColumn fx:id="resultadoColumn" text="Resultado" prefWidth="170.0" />
+                <TableColumn fx:id="fechaColumn" text="Fecha" prefWidth="200.0" />
             </columns>
         </TableView>
         <Button fx:id="backBoton" layoutX="500.0" layoutY="270.0" mnemonicParsing="false" onAction="#volverASeleccion" prefHeight="20.0" prefWidth="70.0" text="Back">

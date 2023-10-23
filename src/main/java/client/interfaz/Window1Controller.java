@@ -2,6 +2,7 @@ package client.interfaz;
 
 import client.Comandos;
 import client.Juego;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -54,13 +55,13 @@ public class Window1Controller {
         {
             return;
         }
-        Juego.GetInstance().setEsperaController(this);
+
         String comando = isLogicalOperation ?
-                Comandos.GetComandoLogicalOperation(campoOperacion.getText(), nombre) :
-                Comandos.GetComandoOperation(campoOperacion.getText(), nombre);
+                Comandos.GetComandoLogicalOperation(campoOperacion.getText(), Juego.GetInstance().getNombreUsuario()) :
+                Comandos.GetComandoOperation(campoOperacion.getText(), Juego.GetInstance().getNombreUsuario());
 
-        Juego.GetInstance().Conectarse(comando);
-
+        String resultado = Juego.GetInstance().EjecutarComando(comando);
+        this.setResultadoLabel(resultado);
         campoOperacion.setDisable(false);
         calcularBoton.setText("Calculando");
         calcularBoton.setPrefWidth(140);
@@ -70,9 +71,5 @@ public class Window1Controller {
 
     public void setIsLogicalOperation() {
         isLogicalOperation = true;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
 }
