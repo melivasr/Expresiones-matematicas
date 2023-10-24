@@ -1,0 +1,2 @@
+Link Documentacion Externa: https://www.overleaf.com/read/gdgrsvmxsdhw
+Link del Azure DevOps: https://dev.azure.com/Proyecto2AEDI/Calculadora/_backlogs/backlog/Calculadora%20Team/Stories
