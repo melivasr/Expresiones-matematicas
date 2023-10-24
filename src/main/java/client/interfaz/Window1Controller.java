@@ -5,6 +5,8 @@ import client.Juego;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -38,6 +40,8 @@ public class Window1Controller {
     // Variable para almacenar la instancia de Stage
     private Stage esperaStage;
 
+    public Stage esperaCamStage;
+
     private boolean isLogicalOperation;
 
     @FXML
@@ -68,6 +72,28 @@ public class Window1Controller {
         calcularBoton.setLayoutX(230);
         calcularBoton.setDisable(false);
     }
+
+
+    public void showCamara(ActionEvent actionEvent) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("camara.fxml"));
+            Stage camStage = new Stage();
+            Scene camScene = new Scene(fxmlLoader.load(), 600, 315);
+            camStage.setTitle("Reconocimiento de Expresiones");
+            camStage.setScene(camScene);
+            camStage.show();
+            this.esperaCamStage = camStage;
+            CamaraController camaraController = fxmlLoader.getController();
+            camaraController.setEsperaCamStage(camStage);
+
+
+
+        } catch (Exception e) {
+            System.out.println("No se puede inicar la ventana de cámara");
+            System.out.println(e.toString());
+        }
+    }
+
 
     public void setIsLogicalOperation() {
         isLogicalOperation = true;
