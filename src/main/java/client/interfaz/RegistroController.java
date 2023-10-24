@@ -1,7 +1,7 @@
 package client.interfaz;
 
 import client.Comandos;
-import client.Juego;
+import client.Socket;
 import com.opencsv.exceptions.CsvException;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -16,7 +16,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
 import client.modelo.Registro;
-import java.io.FileReader;
+
 import java.io.StringReader;
 import java.util.List;
 
@@ -43,7 +43,7 @@ public class RegistroController extends Application {
         String nombre = "";
         String comando =  Comandos.GetComandoTableRequest(nombre);
 
-        String resultado = Juego.GetInstance().EjecutarComando(comando);
+        String resultado = Socket.GetInstance().EjecutarComando(comando);
 
         Parent root = FXMLLoader.load(getClass().getResource("registro.fxml"));
         primaryStage.setTitle("Registro de Operaciones");
@@ -63,8 +63,8 @@ public class RegistroController extends Application {
         resultadoColumn.setCellValueFactory(new PropertyValueFactory<>("resultado"));
         fechaColumn.setCellValueFactory(new PropertyValueFactory<>("fecha"));
 
-        String comando = Comandos.GetComandoTableRequest(Juego.GetInstance().getNombreUsuario());
-        String resultado = Juego.GetInstance().EjecutarComando(comando);
+        String comando = Comandos.GetComandoTableRequest(Socket.GetInstance().getNombreUsuario());
+        String resultado = Socket.GetInstance().EjecutarComando(comando);
         cargarDatosDesdeCSV(resultado);
     }
 

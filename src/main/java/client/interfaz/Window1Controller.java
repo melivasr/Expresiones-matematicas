@@ -1,8 +1,7 @@
 package client.interfaz;
 
 import client.Comandos;
-import client.Juego;
-import javafx.application.Platform;
+import client.Socket;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -57,13 +56,13 @@ public class Window1Controller {
         }
 
         String comando = isLogicalOperation ?
-                Comandos.GetComandoLogicalOperation(campoOperacion.getText(), Juego.GetInstance().getNombreUsuario()) :
-                Comandos.GetComandoOperation(campoOperacion.getText(), Juego.GetInstance().getNombreUsuario());
+                Comandos.GetComandoLogicalOperation(campoOperacion.getText(), Socket.GetInstance().getNombreUsuario()) :
+                Comandos.GetComandoOperation(campoOperacion.getText(), Socket.GetInstance().getNombreUsuario());
 
-        String resultado = Juego.GetInstance().EjecutarComando(comando);
+        String resultado = Socket.GetInstance().EjecutarComando(comando);
         this.setResultadoLabel(resultado);
         campoOperacion.setDisable(false);
-        calcularBoton.setText("Calculando");
+        calcularBoton.setText("Calcular");
         calcularBoton.setPrefWidth(140);
         calcularBoton.setLayoutX(230);
         calcularBoton.setDisable(false);

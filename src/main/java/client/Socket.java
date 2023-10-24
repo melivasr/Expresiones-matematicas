@@ -1,21 +1,17 @@
 package client;
 
-import client.interfaz.Window1Controller;
 import client.socket.ServerConnection;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.net.Socket;
 
 /**
  * Clase que representa la lógica del juego y la comunicación con el servidor.
  * Implementa Runnable para permitir la ejecución concurrente.
  */
-public class Juego{
+public class Socket {
 
-    private static Juego instance;
-
-    private ServerConnection server;
+    private static Socket instance;
 
     public String getNombreUsuario() {
         return nombreUsuario;
@@ -27,44 +23,25 @@ public class Juego{
 
     private String nombreUsuario;
 
-    private Juego ()
+    private Socket()
     {
     }
 
     /**
-     * Obtiene la instancia única de la clase Juego (patrón Singleton).
+     * Obtiene la instancia única de la clase Socket (patrón Singleton).
      *
-     * @return La instancia única de la clase Juego.
+     * @return La instancia única de la clase Socket.
      */
-    public static Juego GetInstance()
+    public static Socket GetInstance()
     {
 
         if(instance == null)
         {
-            instance = new Juego();
+            instance = new Socket();
         }
 
         return instance;
     }
-    /**
-     * Reinicia la instancia única de la clase Juego a una nueva instancia.
-     */
-    public static void ResetInstance()
-    {
-        instance = new Juego();
-    }
-
-
-    /**
-     * Obtiene la conexión al servidor.
-     *
-     * @return La conexión al servidor.
-     */
-    public ServerConnection GetConnection()
-    {
-        return server;
-    }
-
     /**
      * Realiza la conexión al servidor y establece los flujos de entrada y salida de datos.
      *
@@ -73,9 +50,9 @@ public class Juego{
      */
     public String EjecutarComando(String comando)
     {
-        Socket misocket = null;
+        java.net.Socket misocket = null;
         try {
-            misocket = new Socket("127.0.0.1", 9999);
+            misocket = new java.net.Socket("127.0.0.1", 9999);
             ServerConnection cliente = new ServerConnection(misocket);
             cliente.Enviar_mensaje(comando);
             System.out.println(comando);

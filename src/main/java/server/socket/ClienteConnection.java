@@ -14,9 +14,6 @@ public class ClienteConnection implements Runnable {
     // Información del usuario conectado (nombre de usuario e IP)
     String nick, ip;
 
-    //Mensaje a enviar.
-    public String mensaje;
-
     public boolean conectado;
 
     //Flujo de salida de datos para enviar información al servidor.
@@ -113,44 +110,6 @@ public class ClienteConnection implements Runnable {
             System.out.println(e1.getMessage());
         }
 
-    }
-
-    /**
-     * Obtiene y elimina el primer mensaje de la cola de mensajes recibidos.
-     *
-     * @return El primer mensaje de la cola de mensajes recibidos.
-     */
-    public String Obtener_mensaje(){
-
-        return this.mensajes_recibidos.poll();
-    }
-
-    /**
-     * Verifica si hay mensajes en la cola de mensajes recibidos.
-     *
-     * @return Verdadero si hay mensajes en la cola, falso en caso contrario.
-     */
-    public Boolean Revisar_bandeja(){
-        return this.mensajes_recibidos != null && !this.mensajes_recibidos.isEmpty();
-
-
-    }
-
-    /**
-     * Establece el nombre de usuario.
-     *
-     * @param nick El nuevo nombre de usuario.
-     */
-    public void setNick(String nick){
-        this.nick= nick;
-    }
-    /**
-     * Obtiene el nombre de usuario.
-     *
-     * @return El nombre de usuario.
-     */
-    public String getNick() {
-        return nick;
     }
 
     public String LeerEntrada() {

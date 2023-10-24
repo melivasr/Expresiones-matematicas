@@ -2,7 +2,7 @@ package client.interfaz;
 
 import java.io.IOException;
 
-import client.Juego;
+import client.Socket;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -22,7 +22,6 @@ public class ApplicationRunner extends Application {
     public Stage seleccionStage;
     public Button expresionesEvaluadas;
     public TextField campoNombre;
-    public Button guardarNombre;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -55,7 +54,7 @@ public class ApplicationRunner extends Application {
     public void ShowWindow1(ActionEvent actionEvent) {
         try {
             String nombre = campoNombre.getText();
-            Juego.GetInstance().setNombreUsuario(nombre);
+            Socket.GetInstance().setNombreUsuario(nombre);
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("window1.fxml"));
             Stage stage = new Stage();
             Scene scene = new Scene(fxmlLoader.load(), 600, 315);
@@ -77,7 +76,7 @@ public class ApplicationRunner extends Application {
     public void ShowWindow2(ActionEvent actionEvent) {
         try {
             String nombre = campoNombre.getText();
-            Juego.GetInstance().setNombreUsuario(nombre);
+            Socket.GetInstance().setNombreUsuario(nombre);
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("window1.fxml"));
             Stage stage = new Stage();
             Scene scene = new Scene(fxmlLoader.load(), 600, 315);
@@ -99,7 +98,7 @@ public class ApplicationRunner extends Application {
     public void ShowRegistro(ActionEvent actionEvent) {
         try {
             String nombre = campoNombre.getText();
-            Juego.GetInstance().setNombreUsuario(nombre);
+            Socket.GetInstance().setNombreUsuario(nombre);
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("registro.fxml"));
             Stage stage = new Stage();
             Scene scene = new Scene(fxmlLoader.load(), 600, 315);

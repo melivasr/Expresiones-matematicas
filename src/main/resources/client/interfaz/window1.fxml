@@ -8,18 +8,23 @@
 
 <AnchorPane prefHeight="315.0" prefWidth="600.0" style="-fx-background-color: #4682B4;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.interfaz.Window1Controller">
    <children>
-      <TextField fx:id="campoOperacion" layoutX="226.0" layoutY="133.0" />
-      <Label layoutX="192.0" layoutY="86.0" text="Ingrese la operación" textFill="WHITE">
+      <TextField fx:id="campoOperacion" layoutX="185.0" layoutY="133.0" />
+      <Label layoutX="188.0" layoutY="79.0" text="Ingrese la operación:" textFill="WHITE">
          <font>
-            <Font name="Bodoni MT" size="23.0" />
+            <Font name="Bodoni MT" size="21.0" />
          </font>
       </Label>
-      <Label fx:id="resultado" layoutX="266.0" layoutY="216.0" prefHeight="25.0" prefWidth="70.0" textFill="WHITE">
+      <Label layoutX="345.0" layoutY="133.0" text="=" textFill="WHITE">
          <font>
-            <Font name="Bodoni MT" size="19.0" />
+            <Font name="Bodoni MT" size="18.0" />
          </font>
       </Label>
-      <Button fx:id="calcularBoton" layoutX="252.0" layoutY="180.0" mnemonicParsing="false" onAction="#iniciarCalculadora" prefHeight="19.0" prefWidth="70.0" text="Calcular">
+      <Label fx:id="resultado" layoutX="365.0" layoutY="133.0" prefHeight="25.0" prefWidth="120.0" textFill="WHITE">
+         <font>
+            <Font name="Bodoni MT" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="calcularBoton" layoutX="240.0" layoutY="185.0" mnemonicParsing="false" onAction="#iniciarCalculadora" prefHeight="20.0" prefWidth="70.0" text="Calcular">
          <font>
             <Font size="11.0" />
          </font>

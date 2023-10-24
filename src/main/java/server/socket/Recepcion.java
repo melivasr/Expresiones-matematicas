@@ -17,8 +17,6 @@ import java.net.Socket;
 public class Recepcion implements Runnable {
 
 
-    public int cantidadUsuariosConectados;
-
     public Cola<Cliente> clienteCola;
 
     /**
