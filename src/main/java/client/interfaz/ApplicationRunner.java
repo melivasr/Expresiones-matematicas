@@ -15,6 +15,7 @@ import javafx.stage.Stage;
  * Inicia la aplicación. Carga la escena y muestra la ventana de la aplicación.
  *
  * @throws IOException si hay un problema al cargar el archivo FXML.
+ * @author Melissa Vásquez
  */
 
 public class ApplicationRunner extends Application {
@@ -46,11 +47,15 @@ public class ApplicationRunner extends Application {
 
     public void iniciarCalculadora(ActionEvent actionEvent) {
     }
-
-    // Método para obtener la referencia a la ventana de selección
     public Stage getSeleccionStage() {
         return seleccionStage;
     }
+
+    /**
+     * Muestra la ventana de la calculadora algebraica.
+     *
+     * @param actionEvent el evento de acción de este método.
+     */
     public void ShowWindow1(ActionEvent actionEvent) {
         try {
             String nombre = campoNombre.getText();
@@ -73,6 +78,11 @@ public class ApplicationRunner extends Application {
         }
     }
 
+    /**
+     * Muestra la ventana de la calculadora booleana.
+     *
+     * @param actionEvent el evento de acción de este método.
+     */
     public void ShowWindow2(ActionEvent actionEvent) {
         try {
             String nombre = campoNombre.getText();
@@ -95,6 +105,11 @@ public class ApplicationRunner extends Application {
         }
     }
 
+    /**
+     * Muestra la ventana de registro de operaciones.
+     *
+     * @param actionEvent el evento de acción de este método.
+     */
     public void ShowRegistro(ActionEvent actionEvent) {
         try {
             String nombre = campoNombre.getText();

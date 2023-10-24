@@ -8,6 +8,10 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
  * Clase encargada de gestionar las conexiones entre un cliente y el servidor.
+ * Esta clase mantiene la información del usuario, gestiona los flujos de entrada y salida de datos,
+ * y maneja la cola de mensajes recibidos del servidor.
+ *
+ * @author Melissa Vásquez
  */
 public class ClienteConnection implements Runnable {
 
@@ -111,7 +115,11 @@ public class ClienteConnection implements Runnable {
         }
 
     }
-
+    /**
+     * Lee el flujo de entrada de datos del socket.
+     *
+     * @return El mensaje recibido del servidor.
+     */
     public String LeerEntrada() {
         DataInputStream entradaDatos = this.getEntradaDatos();
         try {

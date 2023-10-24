@@ -5,7 +5,8 @@ import org.json.JSONObject;
 import server.socket.ClienteConnection;
 
 /**
- * Clase que representa un cliente conectado al servidor.
+ * Clase que representa un cliente conectado al servidor de la calculadora.
+ * @author Melissa Vásquez
  */
 public class Cliente {
 

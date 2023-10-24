@@ -10,9 +10,9 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-
 /**
- * Clase de servidor que se encarga de recibir los mensajes de los clientes y reenviarlos a los demás.
+ * Clase que implementa la funcionalidad de recepción de conexiones de clientes.
+ * Implementa la interfaz Runnable para permitir la ejecución en un hilo separado.
  */
 public class Recepcion implements Runnable {
 
@@ -29,6 +29,10 @@ public class Recepcion implements Runnable {
 
     /**
      * Inicia la escucha del servidor y acepta conexiones de clientes.
+     * Crea un ServerSocket en el puerto 9999 y acepta conexiones de clientes.
+     * Para cada conexión, se crea un objeto ClienteConnection y se lee el mensaje de entrada.
+     * Se realiza una operación con la Calculadora y se envía el resultado al cliente.
+     * Si ocurre un error en la ejecución, se imprime la traza de la excepción.
      */
     @Override
     public void run() {

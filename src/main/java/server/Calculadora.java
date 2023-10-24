@@ -7,9 +7,14 @@ import utils.LogicalExpresionTree.LogicalExpressionTree;
 
 
 /**
- * Clase que representa el juego y se encarga de gestionar las conexiones de los clientes, el estado del juego y la lógica del juego.
+ * La clase Calculadora se encarga de evaluar las operaciones matemáticas y lógicas que se le pasan en formato JSON.
  */
 public class Calculadora {
+    /**
+     * Método que realiza la operación especificada en el JSON recibido.
+     * @param jsonObject JSON que contiene la operación a realizar.
+     * @return Resultado de la operación.
+     */
 
     public static String EfectuarOperacion(JSONObject jsonObject) {
         System.out.println(jsonObject.toString());
@@ -45,10 +50,21 @@ public class Calculadora {
         return "Calculation Error";
     }
 
+
+    /**
+     * Método que evalúa una expresión matemática.
+     * @param nombre Expresión matemática a evaluar.
+     * @return Resultado de la evaluación de la expresión.
+     */
     public static double evaluarExpression(String nombre) {
         return new ExpressionTree(nombre).evaluate();
     }
 
+    /**
+     * Método que evalúa una expresión lógica.
+     * @param nombre Expresión lógica a evaluar.
+     * @return Resultado de la evaluación de la expresión.
+     */
     public static boolean evaluarExpressionLogical(String nombre) {
         return new LogicalExpressionTree(nombre).evaluate();
     }

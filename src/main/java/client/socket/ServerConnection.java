@@ -25,10 +25,6 @@ public class ServerConnection{
 
     // Socket para la conexión con el servidor
     Socket socket;
-
-    // Cola concurrente para almacenar los mensajes recibidos del servidor
-    public ConcurrentLinkedQueue<String> mensajes_recibidos;
-
     /**
      * Inicializa la conexión al servidor utilizando un socket dado.
      *

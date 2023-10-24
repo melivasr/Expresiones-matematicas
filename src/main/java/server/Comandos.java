@@ -5,6 +5,11 @@ package server;
  */
 public class Comandos {
 
+/**
+ * Método que genera el comando de resultado para el cliente.
+ *
+ * @param resultado El resultado de una operación de la calculadora```
+ */
     public static String GetComandoResultado(String resultado)
     {
 
