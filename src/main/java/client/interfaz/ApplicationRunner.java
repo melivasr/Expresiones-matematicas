@@ -73,7 +73,7 @@ public class ApplicationRunner extends Application {
 
 
         } catch (Exception e) {
-            System.out.println("No se puede inicar la ventana del juego");
+            System.out.println("No se puede iniciar la ventana de la calculadora");
             System.out.println(e.toString());
         }
     }
@@ -100,7 +100,7 @@ public class ApplicationRunner extends Application {
 
 
         } catch (Exception e) {
-            System.out.println("No se puede inicar la ventana del juego");
+            System.out.println("No se puede iniciar la ventana del juego");
             System.out.println(e.toString());
         }
     }
@@ -126,7 +126,7 @@ public class ApplicationRunner extends Application {
 
 
         } catch (Exception e) {
-            System.out.println("No se puede inicar la ventana del juego");
+            System.out.println("No se puede inicar la ventana de la calculadora");
             e.printStackTrace();
         }
     }

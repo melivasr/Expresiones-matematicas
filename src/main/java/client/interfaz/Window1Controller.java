@@ -4,6 +4,8 @@ import client.Comandos;
 import client.Socket;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -24,6 +26,7 @@ public class Window1Controller {
     @FXML
     private Button calcularBoton;
 
+    public Stage window1ControllerStage;
 
     @FXML
     private TextField campoOperacion;
@@ -65,10 +68,32 @@ public class Window1Controller {
     public void setEsperaStage(Stage stage) {
         esperaStage = stage;
     }
+
     /**
-     * Inicia la calculadora.
-     * @param event El evento de acción.
+     * Inicia la ventana de camara.
+     * @param actionEvent El evento de acción.
      */
+
+    public void showCamara(ActionEvent actionEvent) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("camara.fxml"));
+            Stage stage = new Stage();
+            Scene scene = new Scene(fxmlLoader.load(), 600, 315);
+            stage.setTitle("Cámara");
+            stage.setScene(scene);
+            stage.show();
+            this.window1ControllerStage = stage;
+            CamaraController camaraController = fxmlLoader.getController();
+            camaraController.setEsperaCamStage(stage);
+
+
+
+        } catch (Exception e) {
+            System.out.println("No se puede iniciar la ventana de camara");
+            e.printStackTrace();;
+        }
+    }
+
     @FXML
     public void iniciarCalculadora(ActionEvent event) {
         if(campoOperacion.getText().isEmpty())

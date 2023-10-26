@@ -6,6 +6,12 @@ module client.interfaz {
     requires java.desktop;
     requires java.scripting;
     requires com.opencsv;
+    requires org.bytedeco.javacpp;
+    requires org.bytedeco.openblas;
+    requires org.bytedeco.flandmark;
+    requires javafx.media;
+    requires tess4j;
+    requires org.bytedeco.javacv;
 
     opens client.interfaz to javafx.fxml;
     exports client.interfaz;

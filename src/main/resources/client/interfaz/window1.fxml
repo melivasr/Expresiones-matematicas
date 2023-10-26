@@ -34,7 +34,7 @@
             <Font size="11.0" />
          </font>
       </Button>
-      <Button fx:id="camaraBoton" layoutX="500.0" layoutY="25.0" mnemonicParsing="false" onAction="#volverASeleccion" prefHeight="20.0" prefWidth="70.0" text="Cámara">
+      <Button fx:id="camaraBoton" layoutX="500.0" layoutY="25.0" mnemonicParsing="false" onAction="#showCamara" prefHeight="20.0" prefWidth="70.0" text="Cámara">
          <font>
             <Font size="11.0" />
          </font>
