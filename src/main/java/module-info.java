@@ -13,9 +13,6 @@ module client.interfaz {
     requires javafx.media;
     requires tess4j;
     requires org.bytedeco.javacv;
-    requires spring.context;
-    requires spring.web;
-    requires spring.beans;
 
 
     opens client.interfaz to javafx.fxml;
