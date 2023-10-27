@@ -32,7 +32,7 @@ public class Cliente {
     /**
      * Obtiene el nombre del cliente.
      *
-     * @return El nombre del cliente.
+     * @return nombre.
      */
     public String getNombre() {
         return nombre;

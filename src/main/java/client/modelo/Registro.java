@@ -22,21 +22,21 @@ public class Registro {
     }
     /**
      * Obtiene la expresión matemática de este registro.
-     * @return la expresión matemática.
+     * @return expresión matemática.
      */
     public String getExpresion() {
         return expresion;
     }
     /**
      * Obtiene el resultado de la expresión matemática de este registro.
-     * @return el resultado de la expresión matemática.
+     * @return resultado
      */
     public String getResultado() {
         return resultado;
     }
     /**
      * Obtiene la fecha de la operación de este registro.
-     * @return la fecha de la operación.
+     * @return fecha
      */
     public String getFecha() {
         return fecha;

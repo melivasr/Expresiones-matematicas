@@ -34,6 +34,11 @@
             <Font size="11.0" />
          </font>
       </Button>
+      <Button fx:id="obtenerExpresion" layoutX="450.0" layoutY="70.0" mnemonicParsing="false" onAction="#obtenerExpresion" prefHeight="20.0" prefWidth="120.0" text="Obtener Expresion">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Button>
       <Button fx:id="camaraBoton" layoutX="500.0" layoutY="25.0" mnemonicParsing="false" onAction="#showCamara" prefHeight="20.0" prefWidth="70.0" text="Cámara">
          <font>
             <Font size="11.0" />

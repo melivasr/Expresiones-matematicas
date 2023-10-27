@@ -5,19 +5,22 @@
 <?import javafx.scene.image.ImageView?>
 
 <AnchorPane prefHeight="315.0" prefWidth="600.0" style="-fx-background-color: #4682B4;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.interfaz.CamaraController">
-<children>
-    <BorderPane layoutX="90.0" layoutY="40.0">
-        <ImageView fx:id="imageView" fitWidth="310" fitHeight="188"/>
-    </BorderPane>
-    <Button fx:id="takePictureButton" layoutX="190.0" layoutY="250.0" mnemonicParsing="false" onAction="#tomarFoto" prefHeight="20.0" prefWidth="120.0" text="Capturar Foto">
-        <font>
-            <Font size="11.0" />
-        </font>
-    </Button>
-    <Button fx:id="backBoton" layoutX="500.0" layoutY="270.0" mnemonicParsing="false" onAction="#volverAWindow1" prefHeight="20.0" prefWidth="70.0" text="Back">
-        <font>
-            <Font size="11.0" />
-        </font>
-    </Button>
-</children>
+    <children>
+        <BorderPane layoutX="90.0" layoutY="40.0">
+            <ImageView fx:id="imageView" fitWidth="310" fitHeight="188"/>
+        </BorderPane>
+        <BorderPane layoutX="447.0" layoutY="140.0">
+            <ImageView fx:id="imageViewResult" fitWidth="83" fitHeight="50"/>
+        </BorderPane>
+        <Button fx:id="takePictureButton" layoutX="190.0" layoutY="250.0" mnemonicParsing="false" onAction="#tomarFoto" prefHeight="20.0" prefWidth="120.0" text="Capturar Foto">
+            <font>
+                <Font size="11.0" />
+            </font>
+        </Button>
+        <Button fx:id="backBoton" layoutX="500.0" layoutY="270.0" mnemonicParsing="false" onAction="#volverAWindow1" prefHeight="20.0" prefWidth="70.0" text="Back">
+            <font>
+                <Font size="11.0" />
+            </font>
+        </Button>
+    </children>
 </AnchorPane>

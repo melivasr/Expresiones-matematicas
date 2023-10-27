@@ -3,6 +3,7 @@ package client.interfaz;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelWriter;
@@ -11,21 +12,16 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.bytedeco.javacv.*;
 import org.bytedeco.opencv.opencv_core.Mat;
-import org.bytedeco.opencv.opencv_videoio.VideoCapture;
-
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.awt.image.RenderedImage;
-import java.io.ByteArrayInputStream;
 import java.io.File;
-import java.io.IOException;
 
+/**
+ * Clase controlador para la funcionalidad de la cámara.
+ */
 public class CamaraController {
 
     public Stage esperaCamStage;
     private FrameGrabber grabber;
-
-    private VideoCapture capture;
+    private Thread frameGrabberThread; // Variable para mantener una referencia al hilo de captura
 
     @FXML
     public Button backBoton;
@@ -36,18 +32,26 @@ public class CamaraController {
     @FXML
     public ImageView imageView;
 
+    @FXML
+    public ImageView imageViewResult;
+
+    /**
+     * Constructor de la clase CamaraController.
+     */
     public CamaraController() {
         grabber = new OpenCVFrameGrabber(0);
     }
 
+    /**
+     * Método para inicializar la captura de frames de la cámara.
+     */
     @FXML
     public void initialize() {
-
 
         Runnable frameGrabber = () -> {
             try {
                 grabber.start();
-                while (true) {
+                while (!Thread.currentThread().isInterrupted()) {
                     Frame frame = grabber.grab();
 
                     Mat mat = new OpenCVFrameConverter.ToMat().convert(frame);
@@ -56,21 +60,30 @@ public class CamaraController {
                         imageView.setImage(img);
                     }
                 }
+
+                grabber.close();
             } catch (FrameGrabber.Exception e) {
                 throw new RuntimeException(e);
             }
         };
 
-        new Thread(frameGrabber).start();
-
+        frameGrabberThread = new Thread(frameGrabber);
+        frameGrabberThread.setDaemon(true);
+        frameGrabberThread.start();
     }
 
+    /**
+     * Método para tomar una foto con la cámara.
+     */
     public void tomarFoto() {
-        // Captura una imagen y guárdala en el directorio de imágenes
         try {
             Frame frame = grabber.grab();
             Mat mat = new OpenCVFrameConverter.ToMat().convert(frame);
+
             if (mat != null) {
+                Image img = toJavaFXImage(mat);
+                imageViewResult.setImage(img);
+
                 File imagesDirectory = new File("imagenes");
                 if (!imagesDirectory.exists()) {
                     imagesDirectory.mkdirs();
@@ -79,26 +92,43 @@ public class CamaraController {
                 File imageFile = new File(imagesDirectory, filename);
 
                 if (imageFile.exists()) {
-                    imageFile.delete(); // Delete the existing file if needed
+                    imageFile.delete();
                 }
 
                 org.bytedeco.opencv.global.opencv_imgcodecs.imwrite(imageFile.getAbsolutePath(), mat);
+
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-
+    /**
+     * Método para volver a la pantalla anterior y cerrar la cámara.
+     * @param event Evento de acción.
+     */
     @FXML
     public void volverAWindow1(ActionEvent event) {
+        // Detener el hilo de captura de frames
+        frameGrabberThread.interrupt();
+
         esperaCamStage.close();
     }
-
+    /**
+     * Establece la instancia de la clase Stage que se utilizará para mostrar la interfaz de usuario de la calculadora.
+     *
+     * @param stage Es la instancia de la clase Stage que se utilizará.
+     */
     public void setEsperaCamStage(Stage stage) {
         esperaCamStage = stage;
     }
 
+    /**
+     * Convierte una instancia de la clase Mat en una imagen JavaFX.
+     *
+     * @param mat Es la instancia de la clase Mat que se convertirá en una imagen JavaFX.
+     * @return Una instancia de la clase Image que representa la imagen JavaFX correspondiente a la instancia de Mat proporcionada.
+     */
     private Image toJavaFXImage(Mat mat) {
         int width = mat.cols();
         int height = mat.rows();

@@ -10,8 +10,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import net.sourceforge.tess4j.Tesseract;
+import net.sourceforge.tess4j.TesseractException;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
+
 
 /**
  * Esta clase controla la ventana principal de la calculadora.
@@ -22,6 +28,7 @@ public class Window1Controller {
     @FXML
     public Button backBoton;
     public Button camaraBoton;
+    public Button obtenerExpresion;
 
     @FXML
     private Button calcularBoton;
@@ -94,6 +101,10 @@ public class Window1Controller {
         }
     }
 
+    /**
+     * Inicia la calculadora con la operación ingresada.
+     * @param event El evento de acción.
+     */
     @FXML
     public void iniciarCalculadora(ActionEvent event) {
         if(campoOperacion.getText().isEmpty())
@@ -114,9 +125,44 @@ public class Window1Controller {
         calcularBoton.setDisable(false);
     }
     /**
-     * Establece la operación lógica.
+     * Método que establece la operación lógica.
+     *
+     * Establece la variable isLogicalOperation en true.
      */
     public void setIsLogicalOperation() {
         isLogicalOperation = true;
     }
+
+    /**
+     * Método que obtiene la expresión de una imagen y la muestra en un campo de texto.
+     *
+     * @param actionEvent El evento que desencadena la obtención de la expresión.
+     */
+    public void obtenerExpresion(ActionEvent actionEvent) {
+        try {
+            // Carga la imagen desde el archivo
+            File imagenFile = new File("imagenes\\captura.png");
+            BufferedImage originalImage = ImageIO.read(imagenFile);
+
+            // Convierte la imagen a formato TIFF (Tesseract requiere este formato)
+            File tempFile = File.createTempFile("tempImage", ".tif");
+            ImageIO.write(originalImage, "tif", tempFile);
+
+            // Tesseract para reconocer el texto en la imagen
+            Tesseract tesseract = new Tesseract();
+            tesseract.setTessVariable("user_defined_dpi", "100");
+            tesseract.setDatapath("C:\\Program Files\\Tesseract-OCR\\tessdata");
+            String whiteListChars = this.isLogicalOperation? "(^|&~)01" : "(-+*/%)0123456789";
+            tesseract.setTessVariable("tessedit_char_whitelist", whiteListChars);
+            tesseract.setLanguage("eng");
+            String resultado = tesseract.doOCR(tempFile);
+
+            campoOperacion.setText(resultado);
+
+        } catch (IOException | TesseractException e) {
+            e.printStackTrace();
+            System.out.println("Error al obtener la expresión de la imagen.");
+        }
+    }
+
 }
