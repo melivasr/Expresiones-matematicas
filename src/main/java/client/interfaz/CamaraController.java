@@ -7,12 +7,18 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelWriter;
 import javafx.scene.image.WritableImage;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.bytedeco.javacv.*;
 import org.bytedeco.opencv.opencv_core.Mat;
 import org.bytedeco.opencv.opencv_videoio.VideoCapture;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.awt.image.RenderedImage;
 import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.IOException;
 
 public class CamaraController {
 
@@ -59,20 +65,29 @@ public class CamaraController {
 
     }
 
-    @FXML
     public void tomarFoto() {
-        // Captura una imagen y guárdala o procesarla según tus necesidades
+        // Captura una imagen y guárdala en el directorio de imágenes
         try {
             Frame frame = grabber.grab();
             Mat mat = new OpenCVFrameConverter.ToMat().convert(frame);
             if (mat != null) {
-                // Guardar la imagen o procesarla
+                File imagesDirectory = new File("imagenes");
+                if (!imagesDirectory.exists()) {
+                    imagesDirectory.mkdirs();
+                }
+                String filename = "captura.png";
+                File imageFile = new File(imagesDirectory, filename);
+
+                if (imageFile.exists()) {
+                    imageFile.delete(); // Delete the existing file if needed
+                }
+
+                org.bytedeco.opencv.global.opencv_imgcodecs.imwrite(imageFile.getAbsolutePath(), mat);
             }
-        } catch (FrameGrabber.Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
 
 
     @FXML
