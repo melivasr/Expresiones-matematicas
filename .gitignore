@@ -39,3 +39,6 @@ build/
 
 # Choque de JDK
 /.idea/misc.xml
+
+# Imágenes locales
+/imagenes/
