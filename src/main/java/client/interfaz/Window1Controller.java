@@ -152,7 +152,7 @@ public class Window1Controller {
             Tesseract tesseract = new Tesseract();
             tesseract.setTessVariable("user_defined_dpi", "100");
             tesseract.setDatapath("C:\\Program Files\\Tesseract-OCR\\tessdata");
-            String whiteListChars = this.isLogicalOperation? "(^|&~)01" : "(-+*/%)0123456789";
+            String whiteListChars = this.isLogicalOperation? "(|&~)^01" : "(-+*/%)0123456789";
             tesseract.setTessVariable("tessedit_char_whitelist", whiteListChars);
             tesseract.setLanguage("eng");
             String resultado = tesseract.doOCR(tempFile);
